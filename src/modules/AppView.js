@@ -1,14 +1,13 @@
 import React, {PropTypes, Component} from 'react';
-import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import { LayoutAnimation, StatusBar, Modal, ScrollView, Image, TouchableOpacity, TouchableWithoutFeedback, View, StyleSheet, ActivityIndicator} from 'react-native';
 import NavigationViewContainer from './navigation/NavigationViewContainer';
 import * as snapshotUtil from '../utils/snapshot';
 import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
-import { ScrollView, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { Container, Content, Card, CardItem, Left, Body, Thumbnail, Text, Button, Icon, Right, H1, H2, H3 } from 'native-base';
-
+import * as Animatable from 'react-native-animatable';
 import Carousel from 'react-native-carousel-control';
 import SampleData from './SampleData';
 
@@ -22,12 +21,14 @@ class AppView extends Component {
 
   constructor() {
     super();
-    let topicBundles = this.buildTopicBundles()
+
+    StatusBar.setHidden(true)
     this.state = {
-      topicBundles,
+      topicBundles: [],
       selectedTopicBundleIndex: null,
       isInTopicBundleView: false,
     };
+    this.buildTopicBundles()
   }
 
   componentDidMount() {
@@ -47,37 +48,36 @@ class AppView extends Component {
       });
   }
 
+  componentWillUpdate() {
+    LayoutAnimation.spring();
+  }
+
   buildTopicBundles() {
-    let allTopicBundles = []
-    for (let currentTopicBundle of SampleData) {
-      let topicBundle = [];
-      var currentArticle;
-      for (var strength = 5; strength > 0; strength--) {
-        let opinionType = "l";
-        let opinionValue = opinionType + strength;
-        currentArticle = currentTopicBundle[opinionValue]
-        if (currentArticle != undefined) {
-          currentArticle.opinionValue = opinionValue;
-          topicBundle.push(currentArticle);
+    let promises = [];
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=isis"))
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=justice"))
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=trump"))
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=wiretap"))
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=obamacare"));
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=immigration"));
+    promises.push(fetch("https://bubbl-server.herokuapp.com/news/bundle?search=refugee"));
+    Promise.all(promises)
+      .then((responses) => {
+        let jsonResponses = []
+        for (let response of responses) {
+          console.log(response)
+          let promise = response.json()
+          jsonResponses.push(promise)
         }
+        return Promise.all(jsonResponses)
+      })
+      .then((responseTopicBundles) => {
+        console.log(responseTopicBundles)
+        let topicBundles = responseTopicBundles.map((json) => json.newsStories)
+        console.log(topicBundles)
+        this.setState({ topicBundles });
       }
-      currentArticle = currentTopicBundle["n"]
-      if (currentArticle != undefined) {
-        currentArticle.opinionValue = "n";
-        topicBundle.push(currentArticle);
-      }
-      for (var strength = 1; strength <= 5; strength++) {
-        let opinionType = "c";
-        let opinionValue = opinionType + strength;
-        currentArticle = currentTopicBundle[opinionValue]
-        if (currentArticle != undefined) {
-          currentArticle.opinionValue = opinionValue;
-          topicBundle.push(currentArticle);
-        }
-      }
-      allTopicBundles.push(topicBundle);
-    }
-    return allTopicBundles;
+    );
   }
 
   renderBaseFeed() {
@@ -85,7 +85,6 @@ class AppView extends Component {
     for (let currentTopicBundle of this.state.topicBundles) {
       let article = this.getMiddleArticleInTopicBundle(currentTopicBundle)
       let articleCard = this.renderArticleCard(article)
-      console.log(articleCard)
       baseFeed.push(articleCard);
     }
     return baseFeed
@@ -93,7 +92,8 @@ class AppView extends Component {
 
   renderTopicBundleCarousel() {
     let carousel = []
-    let topicBundle = this.state.topicBundles[this.state.selectedTopicBundleIndex]
+    let topicBundle = this.getCurrentSelectedTopicBundle()
+    console.log(topicBundle)
     for (let article of topicBundle) {
       let articleCard = this.renderArticleCard(article)
       carousel.push(articleCard);
@@ -101,18 +101,53 @@ class AppView extends Component {
     return carousel
   }
 
+  getCurrentSelectedTopicBundle() {
+    return this.state.topicBundles[this.state.selectedTopicBundleIndex]
+  }
+
   getMiddleArticleInTopicBundle(topicBundle) {
-    let numberOfArticles = topicBundle.length
-    let middleArticleIndex = Math.floor(numberOfArticles / 2)
-    return topicBundle[middleArticleIndex];
+    let middleIndex = this.getMiddleArticleIndexInTopicBundle(topicBundle)
+    return topicBundle[middleIndex];
   }
 
-  onLongPress = () => {
-    console.log("Long press achieved.")
+  getMiddleArticleIndexInTopicBundle(topicBundle) {
+    return Math.floor(topicBundle.length / 2)
   }
 
-  onShowCarousel = () => {
+  // getRandomArticleInTopicBundle(topicBundle) {
+  //   return Math.floor(Math.random() * topicBundle.length))
+  // }
 
+  // findArticleIndexInTopicBundle(topicBundle, article) {
+  //   return topicBundle.findIndex((element))
+  // }
+
+  onShowCarousel = (article) => {
+    var selectedTopicBundleIndex = null
+
+    let index = 0;
+    for (let currentTopicBundle of this.state.topicBundles) {
+      for (let currentArticle of currentTopicBundle) {
+        if (article.canonicalUrl === currentArticle.canonicalUrl) {
+          selectedTopicBundleIndex = index
+        }
+      }
+      index++;
+    }
+
+    this.refs.baseFeed.fadeOutUpBig(500).then(() => {
+      this.setState({
+        isInTopicBundleView: true,
+        selectedTopicBundleIndex,
+      });
+    })
+  }
+
+  onCloseCarousel = () => {
+    this.setState({
+      isInTopicBundleView: false,
+      selectedTopicBundleIndex: null,
+    })
   }
 
   onFlipCard = () => {
@@ -122,31 +157,39 @@ class AppView extends Component {
   renderArticleCard(article) {
     return (
       <Card key={article.canonicalUrl}>
-        <CardItem style={{ padding: 0 }}>
+        <CardItem style={{ paddingVertical: 5, paddingHorizontal: 10 }}>
           <Left>
             <TouchableOpacity
               onLongPress={this.onLongPress}
               delayLongPress={600}
-              activeOpacity={0.5}
+              activeOpacity={0.1}
               style={{flexDirection: "row" }}
             >
               <Thumbnail source={{ uri: article.sourceThumbnail}} />
-              <Body>
-                <Text>{article.source}</Text>
+              <View>
+                <Text style={{ alignSelf: 'flex-start' }}>{article.source}</Text>
                 <Text note>{article.date}</Text>
-              </Body>
+              </View>
             </TouchableOpacity>
           </Left>
+          <Right>
+            <Icon active name='ios-share-alt' style={{ color: 'gray', fontSize: 35 }} />
+          </Right>
         </CardItem>
         <CardItem>
           <Body>
             <TouchableOpacity
-              onLongPress={this.onLongPress}
+              onLongPress={() => { this.onShowCarousel(article) }}
               delayLongPress={600}
               activeOpacity={0.5}
             >
               <Image
-                style={{ width: 400, height: 200, alignSelf: "center" }}
+                resizeMode="contain"
+                style={{
+                  width: this.state.isInTopicBundleView ? 300 : 400,
+                  height: this.state.isInTopicBundleView ? 200 : 250,
+                  alignSelf: "center"
+                }}
                 source={{ uri: article.image}}
               />
               <Text>{article.headline}</Text>
@@ -158,30 +201,43 @@ class AppView extends Component {
     );
   }
 
-  render() {
-    console.log(this.state)
-
-    var bodyContent = null
-    if (this.state.isInTopicBundleView) {
-      let carousel = this.renderTopicBundleCarousel()
-      bodyContent = (
-        <Carousel>
-          {carousel}
+  renderCarouselView() {
+    let topicBundle = this.getCurrentSelectedTopicBundle();
+    let middleArticleIndex = this.getMiddleArticleIndexInTopicBundle(topicBundle);
+    console.log(topicBundle)
+    console.log(middleArticleIndex)
+    return (
+      <View>
+        <TouchableOpacity
+          style={{ alignSelf: 'flex-end', padding: 10 }}
+          onPress={this.onCloseCarousel}
+          hitSlop={{ bottom: 20, left: 20, right: 20, top: 20 }}
+        >
+          <Icon active name='md-close' style={{ color: 'white', fontSize: 35 }} />
+        </TouchableOpacity>
+        <Carousel currentPage={middleArticleIndex}>
+          {this.renderTopicBundleCarousel()}
         </Carousel>
-      );
+      </View>
+    );
+  }
+
+  render() {
+    var bodyContent = null
+
+    if (this.state.isInTopicBundleView) {
+      bodyContent = this.renderCarouselView()
     } else {
-      let feed = this.renderBaseFeed()
       bodyContent = (
-        <View>
-          {feed}
-        </View>
-      );
-      console.log(feed)
+        <Animatable.View ref="baseFeed">
+          {this.renderBaseFeed()}
+        </Animatable.View>
+      )
     }
 
     return (
       <Container>
-        <Content>
+        <Content style={{ backgroundColor: (this.state.isInTopicBundleView ? 'black' : 'transparent') }}>
           {bodyContent}
         </Content>
       </Container>

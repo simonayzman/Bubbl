@@ -1,6 +1,6 @@
 export default newsStories = [
   {
-    l4: {
+     L4: {
       source: "The Huffington Post",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/11403497_10153180349461130_3440841180739139403_n.jpg?oh=9378c1ff19c53c554556b5fbc08a4575&oe=59326EBF",
       date: "Yesterday at 3:39 p.m.",
@@ -9,25 +9,25 @@ export default newsStories = [
       description: "Director Bill Condon feels the controversy has been overblown.",
       canonicalUrl: "http://www.huffingtonpost.com/entry/beauty-and-the-beast-russia_us_58bd72a7e4b05cf0f401cf20",
     },
-    c4: {
+     C4: {
       source: "Fox News",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/417751_10150581617531336_1949382366_n.jpg?oh=ad770ddadb18212bc452ac236da10865&oe=59295916",
       date: "March 7 at 8:20 a.m.",
       headline: "'Beauty and the Beast' star addresses gay character: 'It's important'",
       image: "http://assets.nydailynews.com/polopoly_fs/1.2992202.1489003202!/img/httpImage/image.jpg_gen/derivatives/article_750/lefou9f-1-web.jpg",
       description: "It’s the crown jewel.",
-      canonicalUrl: "http://www.breitbart.com/big-hollywood/2017/03/06/beauty-beast-director-gay-moment-controversy-overblown/",
+      canonicalUrl: "http://www.foxnews.com/entertainment/2017/03/04/beauty-and-beast-star-addresses-gay-character-its-important.html",
     },
-    c5: {
+     C5: {
       source: "Breitbart News",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/227458_10152346853555354_25751187_n.jpg?oh=a7ab1df576d59b96dcc81e2848d32dc8&oe=5970AB96",
       date: "March 7 at 5:19 p.m.",
       headline: "‘Beauty and the Beast’ Director: ‘Gay Moment’ Controversy Is ‘Overblown’",
-      image: "http://a57.foxnews.com/images.foxnews.com/content/fox-news/entertainment/2017/03/04/josh-gad-addresses-gay-beauty-and-beast-character-at-l-premiere-its-important/_jcr_content/par/featured_image/media-0.img.jpg/876/493/1488642842412.jpg?ve=1&tl=1",
+      image: "https://pmcvariety.files.wordpress.com/2017/03/josh-gad-beauty-and-the-beast.jpg",
       description: "Reports of an “exclusively gay moment” in Disney’s live-action remake of Beauty and the Beast fueled intense speculation and sparked controversy.",
       canonicalUrl: "http://www.breitbart.com/big-hollywood/2017/03/06/beauty-beast-director-gay-moment-controversy-overblown/",
     },
-    l1: {
+     L1: {
       source: "New York Times",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/420194_448960124998_2006714158_n.jpg?oh=96c2dcf876c1a92fe915c082351dbe17&oe=5937C382",
       date: "Yesterday at 10:08 a.m.",
@@ -38,7 +38,7 @@ export default newsStories = [
     },
   },
   {
-    l5: {
+     L5: {
       source: "Huffington Post",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/11403497_10153180349461130_3440841180739139403_n.jpg?oh=9378c1ff19c53c554556b5fbc08a4575&oe=59326EBF",
       date: "Today at 11:42 a.m.",
@@ -47,7 +47,7 @@ export default newsStories = [
       description: "The Housing and Urban Development secretary told staff that these numbers are just preliminary.",
       canonicalUrl: "http://www.huffingtonpost.com/entry/ben-carson-hud_us_58c188a4e4b054a0ea68a605",
     },
-    l2: {
+     L2: {
       source: "New York Magazine",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/424779_10150651090999826_310440836_n.jpg?oh=82c31b43668c44285569d7d9a88bca40&oe=59253007",
       date: "Today at 9:55 a.m.",
@@ -56,7 +56,7 @@ export default newsStories = [
       description: "The proposed budget would slash all funding for community development and drastically reduce rental assistance to the poor.",
       canonicalUrl: "http://nymag.com/daily/intelligencer/2017/03/trump-mulls-cutting-usd6-billion-from-hud-to-fund-defense.html",
     },
-    l1: {
+     L1: {
       source: "Washington Post",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/13626470_10153958733697293_5637011089315584460_n.png?oh=9f1bd6c1c8d93dd5dd17e363067ea29c&oe=593804B5",
       date: "Today at 12:54 p.m.",
@@ -65,7 +65,7 @@ export default newsStories = [
       description: "Move would drop Housing and Urban Development funding by about 14 percent as part of plan to cut domestic spending and increase the defense budget.",
       canonicalUrl: "https://www.washingtonpost.com/politics/trump-administration-considers-6-billion-cut-to-hud-budget/2017/03/08/1757e8e8-03ab-11e7-b1e9-a05d3c21f7cf_story.html?utm_term=.7d4121a61fc3",
     },
-    l3: {
+     L3: {
       source: "New York Daily News",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/c0.1.200.200/p200x200/11218484_10152876299602541_7068438875304297161_n.jpg?oh=ee543204ce37bad44dd546cc256dc56b&oe=5934D5E4",
       date: "Today at 10:44 a.m.",
@@ -74,27 +74,27 @@ export default newsStories = [
       description: "The Trump administration is putting federal budgets on the chopping block.",
       canonicalUrl: "http://www.nydailynews.com/news/politics/trump-admin-reportedly-considers-6-billion-public-housing-cuts-article-1.2992759",
     },
-    c3: {
+     C3: {
       source: "Fox News",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/417751_10150581617531336_1949382366_n.jpg?oh=ad770ddadb18212bc452ac236da10865&oe=59295916",
       date: "Today at 8:28 a.m.",
       headline: "Preliminary budget would cut $6B from HUD, report says",
-      image: "http://a57.foxnews.com/images.foxnews.com/content/fox-news/politics/2017/03/08/preliminary-budget-would-cut-6b-from-hud-report-says/_jcr_content/par/featured-media/media-0.img.jpg/876/493/1489042175774.jpg?ve=1&tl=1",
+      image: "http://i2.cdn.cnn.com/cnnnext/dam/assets/151020074948-ben-carson-donald-trump-gop-debate-super-tease.jpg",
       description: "Preliminary budget documents obtained by The Washington Post show the Trump administration is considering more than $6 billion in cuts to the Department of Housing and Urban Development.",
       canonicalUrl: "http://www.foxnews.com/politics/2017/03/08/preliminary-budget-would-cut-6b-from-hud-report-says.html",
     },
-    c1: {
+     C1: {
       source: "The Hill",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/12985451_10153703672994087_5860860619868875285_n.jpg?oh=b919a1494e2ef93bea9428c0114f18a0&oe=5938C034",
-      date: "Today at 8:28 a.m.",
-      headline: "Preliminary budget would cut $6B from HUD, report says",
+      date: "Today at 3:16 a.m.",
+      headline: "Report: Early Trump administration budget would cut HUD funding by $6B",
       image: "http://thehill.com/sites/default/files/styles/thumb_small_article/public/article_images/carsonben_trumpdonald03112016getty.jpg?itok=5eLeXjQH",
-      description: " The budget plan is still in the works, HUD said.",
-      canonicalUrl: "http://www.foxnews.com/politics/2017/03/08/preliminary-budget-would-cut-6b-from-hud-report-says.html",
+      description: "The White House is considering cutting $6 billion from the Department of Housing and Urban Development, according to a preliminary budget plan, the Washington Post reported.",
+      canonicalUrl: "http://thehill.com/blogs/blog-briefing-room/news/323106-report-early-trump-administration-budget-would-cut-hud-funding",
     },
   },
   {
-    c5: {
+     C5: {
       source: "Breitbart News",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/227458_10152346853555354_25751187_n.jpg?oh=a7ab1df576d59b96dcc81e2848d32dc8&oe=5970AB96",
       date: "Today at 11:41 a.m.",
@@ -103,7 +103,7 @@ export default newsStories = [
       description: "Robert Iger, CEO of the Walt Disney Company, denied any claims of left-wing political bias at ABC News or ESPN.",
       canonicalUrl: "http://www.breitbart.com/big-journalism/2017/03/09/disney-boss-says-no-political-bias-at-abc-news-and-espn-complaints-completely-exaggerated/",
     },
-    l1: {
+     N: {
       source: "New York Times",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/420194_448960124998_2006714158_n.jpg?oh=96c2dcf876c1a92fe915c082351dbe17&oe=5937C382",
       date: "Yesterday at 10:08 a.m.",
@@ -112,7 +112,7 @@ export default newsStories = [
       description: "At the company’s shareholder meeting, Robert A. Iger told those who want him to quit the president’s business policy forum that he was using it to share his values with Mr. Trump",
       canonicalUrl: "https://www.nytimes.com/2017/03/08/business/media/disney-chief-my-role-on-a-trump-panel-is-not-an-endorsement.html",
     },
-    c3: {
+     C3: {
       source: "Fox News",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/417751_10150581617531336_1949382366_n.jpg?oh=ad770ddadb18212bc452ac236da10865&oe=59295916",
       date: "Today at 8:28 a.m.",
@@ -121,7 +121,7 @@ export default newsStories = [
       description: "Walt Disney Co Chief Executive Bob Iger on Wednesday defended his seat on President Trump's business advisory council as an opportunity to voice opinions that will benefit the company and its shareholders.",
       canonicalUrl: "http://www.foxnews.com/politics/2017/03/08/preliminary-budget-would-cut-6b-from-hud-report-says.html",
     },
-    l1: {
+     L1: {
       source: "CNN",
       sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/12289622_10154246192721509_1897912583584847639_n.png?oh=600a4c86ac4b6a0f2d12168302b361bc&oe=59299902",
       date: "Today at 8:28 a.m.",
@@ -130,5 +130,52 @@ export default newsStories = [
       description: "Bob Iger, Disney's CEO, defended his place on President Donald Trump's business forum.",
       canonicalUrl: "http://money.cnn.com/2017/03/08/media/bob-iger-disney-ceo-donald-trump/",
     },
+     L3: {
+      source: "USA Today",
+      sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/1010865_10151474071775667_343037047_n.png?oh=87daf78ffeda99aab7be9020474d545b&oe=592C8A97",
+      date: "Today at 9:51 p.m.",
+      headline: "Disney's Iger fends off critiques of bias, Trump collaboration",
+      image: "https://media.bizj.us/view/img/2225131/bobiger-disney-bloomberg-2*750xx3000-1691-0-126.jpg",
+      description: "BDisney CEO Robert Iger tackled questions big and small during the company's annual shareholder meeting Wednesday.",
+      canonicalUrl: "http://www.usatoday.com/story/tech/talkingtech/2017/03/08/disneys-iger-fends-critiques-bias-trump-collaboration/98923706/",
+    },
   },
+  {
+     C5: {
+     source: "Breitbart News",
+     sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/227458_10152346853555354_25751187_n.jpg?oh=a7ab1df576d59b96dcc81e2848d32dc8&oe=5970AB96",
+     date: "March 6 at 1:12 p.m.",
+     headline: "Donald Trump Signs Executive Order Banning Travel from Six Terror-Tied Countries",
+     image: "http://media.breitbart.com/media/2017/01/AP_16217373960603-640x480.jpg",
+     description: "President Donald Trump has signed a new executive order blocking the arrival of most travelers from six conflict-prone countries for 90 days, and freezing the inflow of refugees from any country for the next 120 days.",
+     canonicalUrl: "http://www.breitbart.com/big-government/2017/03/06/trump-new-refugees-executive-pushes-back-judges/",
+   },
+     C4: {
+     source: "Fox News",
+     sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/417751_10150581617531336_1949382366_n.jpg?oh=ad770ddadb18212bc452ac236da10865&oe=59295916",
+     date: "March 6 at 5:02 p.m.",
+     headline: "Trump Signs New Immigration Order, Narrows Scope of Travel Ban",
+     image: "http://a57.foxnews.com/www.foxnews.com/content/dam/fox-news/images/2017/02/08/180/102/f77d9c082d7a4c358a08bc0b08a067b1.jpg",
+     description: "President Trump on Monday signed a revised executive order suspending the refugee program as well as entry to the U.S. for travelers from six mostly Muslim countries, curtailing what was a broadly worded directive in a bid to withstand court scrutiny.",
+     canonicalUrl: "http://www.foxnews.com/politics/2017/03/06/trump-signs-new-immigration-order-narrows-scope-travel-ban.html",
+   },
+     C1: {
+     source: "The Wall Street Journal",
+     sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p200x200/10425183_10153042997503128_8853743190705642331_n.jpg?oh=0da3aa4582869bd80ed36b6658c80831&oe=5937473D",
+     date: "March 6 at 11:07 a.m.",
+     headline: "Trump Signs New Travel Ban in Bid to Avoid Original Order’s Legal Pitfalls",
+     image: "https://si.wsj.net/public/resources/images/BN-RW172_indtru_J_20170130082159.jpg",
+     description: "President Donald Trump signed a scaled-back travel ban that addresses some of the legal challenges to his original executive order, while blocking new visas for people living in six Muslim-majority nations and suspending admission of refugees to the U.S.",
+     canonicalUrl: "https://si.wsj.net/public/resources/images/BN-RW172_indtru_J_20170130082159.jpg",
+   },
+   N: {
+     source: "The New York Times",
+     sourceThumbnail: "https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/420194_448960124998_2006714158_n.jpg?oh=96c2dcf876c1a92fe915c082351dbe17&oe=5937C382",
+     date: "March 6 at 8:14 p.m.",
+     headline: "Trump’s New Travel Ban Blocks Migrants From Six Nations, Sparing Iraq",
+     image: "https://static01.nyt.com/images/2017/03/07/us/07trump/03trump-master768.jpg",
+     description: "The new restriction will apply to citizens of six predominantly Muslim nations in an effort to improve on a hastily drawn order in January that did not pass legal scrutiny.",
+     canonicalUrl: "https://www.nytimes.com/2017/03/06/us/politics/travel-ban-muslim-trump.html",
+   },
+ }
 ];

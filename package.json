@@ -40,6 +40,7 @@
     "react": "~15.4.2",
     "react-dom": "~15.4.2",
     "react-native": "0.42.0",
+    "react-native-animatable": "^1.1.0",
     "react-native-carousel-control": "^1.1.1",
     "react-native-vector-icons": "^4.0.0",
     "react-redux": "^4.4.5",
