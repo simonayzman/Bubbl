@@ -31,10 +31,11 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "@shoutem/ui": "^0.10.13",
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",
     "immutable": "^3.7.6",
-    "lodash": "^4.11.0",
+    "lodash": "^4.17.4",
     "moment": "^2.12.0",
     "native-base": "^2.0.12",
     "react": "~15.4.2",
@@ -42,7 +43,9 @@
     "react-native": "0.42.0",
     "react-native-animatable": "^1.1.0",
     "react-native-carousel-control": "^1.1.1",
+    "react-native-linear-gradient": "^2.0.0",
     "react-native-vector-icons": "^4.0.0",
+    "react-navigation": "^1.0.0-beta.6",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
