@@ -6,7 +6,6 @@ import {
   ActivityIndicator
 } from 'react-native';
 import {
-  Spinner,
   Tile,
   Row,
   Image,
@@ -24,6 +23,7 @@ import {
 
 import * as Animatable from 'react-native-animatable';
 import Carousel from 'react-native-carousel-control';
+import Spinner from 'react-native-spinkit';
 
 export default class HomeScreen extends Component {
 
@@ -162,9 +162,11 @@ export default class HomeScreen extends Component {
     if (this.state.isLoading) {
       return (
         <Spinner
-          styleName='v-center h-center'
-          size={'large'}
-          style={{ height: 80 }}
+          style={{ alignSelf: 'center', marginTop: 50 }}
+          isVisible
+          size={100}
+          type={'Bounce'}
+          color={'#3B5998'}
         />
       )
     }
