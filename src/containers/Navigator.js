@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from '../components/HomeScreen'
-import Carousel from '../components/Carousel'
+import TopicBundleCarousel from '../components/TopicBundleCarousel'
 import ArticlePage from '../components/ArticlePage'
 
 const routeConfigs = {
@@ -16,6 +16,14 @@ const routeConfigs = {
           backgroundColor: '#3B5998',
         }
       }
+    },
+  },
+  TopicBundleCarousel: {
+    screen: TopicBundleCarousel,
+    navigationOptions: {
+      header: {
+        visible: false,
+      },
     },
   },
   ArticlePage: {
