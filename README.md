@@ -1,4 +1,4 @@
-![Bubbl Logo](/images/inverted-facebook@2x.png)
+![Bubbl Logo](/images/bubbl@2x.png)
 Bubbl
 ===
 

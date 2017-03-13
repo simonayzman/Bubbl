@@ -7,7 +7,7 @@ const routeConfigs = {
   Home: {
     screen: HomeScreen,
     navigationOptions: {
-      title: 'Facebook',
+      title: 'Bubbl',
       header: {
         titleStyle: {
           color: 'white',
