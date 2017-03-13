@@ -91,8 +91,8 @@ export default class HomeScreen extends Component {
     var { width } = Dimensions.get('window');
     return (
       <View style={{ alignItems: 'center'}}>
+        <Image source={require('../../images/topAction.png')} style={{ width, borderColor: '#d3d3d3', borderWidth: 0.5 }}/>
         <Image source={require('../../images/prompt.png')} style={{ width }}/>
-        <Image source={require('../../images/topAction.png')} style={{ width }}/>
         <Divider style={{ backgroundColor: 'transparent' }} />
       </View>
     )
