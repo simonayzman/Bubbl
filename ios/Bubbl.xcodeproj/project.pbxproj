@@ -1405,7 +1405,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pepperoni.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonayzman.Bubbl;
 				PRODUCT_NAME = Bubbl;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1433,7 +1433,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pepperoni.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simonayzman.Bubbl;
 				PRODUCT_NAME = Bubbl;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1470,7 +1470,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Bubbl-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.simonayzman.Bubbl-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1509,7 +1509,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Bubbl-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.simonayzman.Bubbl-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
