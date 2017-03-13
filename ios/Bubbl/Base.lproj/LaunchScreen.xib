@@ -16,13 +16,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load_screen" translatesAutoresizingMaskIntoConstraints="NO" id="YvM-W2-CEZ">
-                    <rect key="frame" x="52.666666666666657" y="-93.666666666666686" width="375" height="667.33333333333326"/>
+                    <rect key="frame" x="0.0" y="-93.666666666666686" width="480.33333333333331" height="667.33333333333326"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="YvM-W2-CEZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="04R-0s-M7Z"/>
+                <constraint firstItem="YvM-W2-CEZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="18H-CR-D9d"/>
+                <constraint firstItem="YvM-W2-CEZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="28j-SL-fUK"/>
                 <constraint firstItem="YvM-W2-CEZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KdI-T9-7Hq"/>
+                <constraint firstItem="YvM-W2-CEZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="M5b-MX-inD"/>
+                <constraint firstAttribute="trailing" secondItem="YvM-W2-CEZ" secondAttribute="trailing" id="WbF-fS-S8G"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
