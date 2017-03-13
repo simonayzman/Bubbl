@@ -18,6 +18,14 @@ const routeConfigs = {
       }
     },
   },
+  ArticlePage: {
+    screen: ArticlePage,
+    navigationOptions: {
+      header: {
+        visible: false,
+      },
+    },
+  }
 }
 
 const stackNavigatorConfig = {
