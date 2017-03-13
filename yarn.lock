@@ -16,9 +16,9 @@
     hoist-non-react-statics "^1.2.0"
     lodash "^4.15.0"
 
-"@shoutem/theme@^0.8.8", "@shoutem/theme@git+https://github.com/GeekyAnts/theme.git":
+"@shoutem/theme@^0.8.8", "@shoutem/theme@https://github.com/GeekyAnts/theme":
   version "0.8.8"
-  resolved "git+https://github.com/GeekyAnts/theme.git#80295460091fee0edff9783bad8d5c5297afe779"
+  resolved "https://github.com/GeekyAnts/theme#80295460091fee0edff9783bad8d5c5297afe779"
   dependencies:
     hoist-non-react-statics "^1.0.5"
     lodash "^4.10.1"
@@ -3376,7 +3376,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4060,7 +4060,7 @@ react-native-keyboard-aware-scroll-view@0.2.7:
   dependencies:
     react-timer-mixin "^0.13.3"
 
-"react-native-lightbox@github:shoutem/react-native-lightbox#0af4feb89f4a424c6225f6ab393028cbbdd73b74":
+react-native-lightbox@shoutem/react-native-lightbox#0af4feb89f4a424c6225f6ab393028cbbdd73b74:
   version "0.6.1"
   resolved "https://codeload.github.com/shoutem/react-native-lightbox/tar.gz/0af4feb89f4a424c6225f6ab393028cbbdd73b74"
   dependencies:
@@ -4070,6 +4070,10 @@ react-native-keyboard-aware-scroll-view@0.2.7:
 react-native-linear-gradient@^1.5.15:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-1.6.2.tgz#1ea3e7a186b514661b927673aa9c427dd520999f"
+
+react-native-linear-gradient@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.0.0.tgz#7442c00e1fcd9fca329119dcbaf744d12bcd1b5a"
 
 react-native-mock@~0.2.5:
   version "0.2.9"
@@ -4106,11 +4110,15 @@ react-native-share@^1.0.13:
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-1.0.20.tgz#38ba820a4ddfc5afe1dec0e1456ced11f14352bc"
 
+react-native-spinkit@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.0.2.tgz#0d31b019556e038aa8e953038562550cb0ead8d2"
+
 react-native-tab-view@^0.0.56:
   version "0.0.56"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.56.tgz#7417a1f6502deef49abf58ba76a1cde213abbbf1"
 
-"react-native-transformable-image@github:shoutem/react-native-transformable-image#7d15395ec3857571711a12bc08f24f3a96ff1cde":
+react-native-transformable-image@shoutem/react-native-transformable-image#7d15395ec3857571711a12bc08f24f3a96ff1cde:
   version "0.0.19"
   resolved "https://codeload.github.com/shoutem/react-native-transformable-image/tar.gz/7d15395ec3857571711a12bc08f24f3a96ff1cde"
   dependencies:
