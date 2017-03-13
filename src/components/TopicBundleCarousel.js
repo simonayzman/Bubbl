@@ -98,6 +98,7 @@ export default class TopicBundleCarousel extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: 'black' }}>
         <Carousel
+          swipeThreshold={0.3}
           pageStyle={{ alignSelf: 'center', height: 500 }}
           currentPage={this.state.currentArticleIndex}
           onPageChange={this.onArticleChange}
