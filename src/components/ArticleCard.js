@@ -22,6 +22,7 @@ export default class ArticleCard extends Component {
     onPressContent: PropTypes.func,
     onLongPressContent: PropTypes.func,
     styleName: PropTypes.string,
+    compact: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -29,12 +30,13 @@ export default class ArticleCard extends Component {
     onLongPressHeader: () => {},
     onPressContent: () => {},
     onLongPressContent: () => {},
+    compact: false,
   }
 
   renderHeader = () => {
     const { article } = this.props;
     return (
-      <Row styleName={this.props.styleName} style={{ padding: 8 }}>
+      <Row styleName={this.props.styleName} style={{ padding: 8, flex: 0 }}>
         <View>
           <TouchableOpacity
             onPress={() => { this.props.onPressHeader(article) }}
@@ -67,6 +69,22 @@ export default class ArticleCard extends Component {
     if (article.description && _.trim(article.description).length !== 0) {
       description = (<Subtitle styleName={this.props.styleName} style={{ color: 'gray' }}>{article.description}</Subtitle>);
     }
+    var contentImage = null;
+    if (this.props.compact) {
+      contentImage = (
+        <Image
+          source={{ uri: article.image }}
+          style={{ width: 300, height: 200, alignSelf: 'center' }}
+        />
+      );
+    } else {
+      contentImage = (
+        <Image
+          styleName='large-banner'
+          source={{ uri: article.image }}
+        />
+      );
+    }
     return (
       <TouchableOpacity
         onPress={() => { this.props.onPressContent(article) }}
@@ -75,10 +93,7 @@ export default class ArticleCard extends Component {
         activeOpacity={0.1}
       >
         <Tile styleName={this.props.styleName}>
-          <Image
-            styleName="large-banner"
-            source={{ uri: article.image }}
-          />
+          {contentImage}
           <View styleName='content' style={{ paddingTop: 10 }}>
             <Title styleName={this.props.styleName}>{article.headline}</Title>
             {description}
@@ -90,7 +105,7 @@ export default class ArticleCard extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         {this.renderHeader()}
         {this.renderContent()}
       </View>

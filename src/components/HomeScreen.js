@@ -1,20 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Dimensions } from 'react-native';
-import {
-  Tile,
-  Row,
-  Image,
-  Title,
-  Subtitle,
-  Caption,
-  View,
-  Button,
-  Icon,
-  Card,
-  TouchableOpacity,
-  ListView,
-  Divider,
-} from '@shoutem/ui';
+import { Image, View, ListView, Divider } from '@shoutem/ui';
 
 import * as Animatable from 'react-native-animatable';
 import Carousel from 'react-native-carousel-control';
@@ -98,19 +84,7 @@ export default class HomeScreen extends Component {
   }
 
   onOpenCarousel = (topicBundle, articleIndex) => {
-    var selectedTopicBundleIndex = null
-
-    let index = 0;
-    for (let currentTopicBundle of this.state.topicBundles) {
-      for (let currentArticle of currentTopicBundle) {
-        if (article.canonicalUrl === currentArticle.canonicalUrl) {
-          selectedTopicBundleIndex = index
-        }
-      }
-      index++;
-    }
-
-    this.props.navigation.navigate('TopicBundleCarousel', { topicBundle })
+    this.props.navigation.navigate('TopicBundleCarousel', { topicBundle, initialArticleIndex: articleIndex })
   }
 
   renderFeedHeader = () => {
@@ -162,7 +136,7 @@ export default class HomeScreen extends Component {
     }
 
     let combinedFeed = this.state.topicBundles.concat(this.state.fakeRows);
-    let randomizedFeed = combinedFeed//randomShuffle(combinedFeed);
+    let randomizedFeed = randomShuffle(combinedFeed);
 
     return (
       <ListView
