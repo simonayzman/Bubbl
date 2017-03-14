@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">vw-p6RCZHr_ihKA9kWbqZQxVpMOkVJETbBboz</string>
     <string name="app_name">Bubbl</string>
 </resources>

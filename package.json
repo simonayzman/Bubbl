@@ -42,6 +42,7 @@
     "react-native": "0.42.0",
     "react-native-animatable": "^1.1.0",
     "react-native-carousel-control": "^1.1.1",
+    "react-native-code-push": "^1.17.2-beta",
     "react-native-linear-gradient": "^2.0.0",
     "react-native-spinkit": "^1.0.2",
     "react-native-vector-icons": "^4.0.0",
