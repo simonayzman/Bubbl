@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
-import HomeScreen from '../components/HomeScreen'
-import TopicBundleCarousel from '../components/TopicBundleCarousel'
-import ArticlePage from '../components/ArticlePage'
+import HomeScreen from '../components/HomeScreen';
+import TopicBundleCarousel from '../components/TopicBundleCarousel';
+import ArticlePage from '../components/ArticlePage';
 
 const routeConfigs = {
   Home: {
@@ -14,8 +14,8 @@ const routeConfigs = {
         },
         style: {
           backgroundColor: '#3B5998',
-        }
-      }
+        },
+      },
     },
   },
   TopicBundleCarousel: {
@@ -33,14 +33,14 @@ const routeConfigs = {
         visible: false,
       },
     },
-  }
-}
+  },
+};
 
 const stackNavigatorConfig = {
   initialRouteName: 'Home',
   headerMode: 'screen',
   mode: 'modal',
-}
+};
 
 const Navigator = StackNavigator(routeConfigs, stackNavigatorConfig);
 

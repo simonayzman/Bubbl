@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import * as Animatable from 'react-native-animatable';
-import Carousel from 'react-native-carousel-control';
 import FlipView from './FlipView';
 import ArticleCard from './ArticleCard';
 
@@ -26,66 +24,66 @@ export default class TopicBundleCard extends Component {
   constructor(props) {
     super();
 
-    let randomArticleIndex = this.getRandomArticleIndex(props.topicBundle)
+    const randomArticleIndex = this.getRandomArticleIndex(props.topicBundle);
     this.state = {
       showingInitialArticle: true,
       initialArticleIndex: randomArticleIndex,
     };
   }
 
-  getRandomArticleIndex(topicBundle) {
-    return Math.floor(Math.random() * topicBundle.articles.length);
-  }
-
-  getMiddleArticleIndex(topicBundle) {
-    return Math.floor((topicBundle.articles.length - 1) / 2);
-  }
-
-  getOppositeArticleIndex(topicBundle, articleIndex) {
-    let lastArticleIndex = topicBundle.articles.length - 1;
-    var oppositeArticleIndex = lastArticleIndex - articleIndex;
-    if (oppositeArticleIndex === articleIndex) {
-      oppositeArticleIndex++;
-    }
-    return oppositeArticleIndex;
-  }
-
-  findArticleIndex(topicBundle, article) {
-    return topicBundle.articles.findIndex((currentArticle) =>
-      currentArticle.canonicalUrl === article.canonicalUrl
-    )
-  }
-
-  getArticleAtIndex(topicBundle, index) {
-    return topicBundle.articles[index];
-  }
-
   onPressHeader = (article) => {
-    let articleIndex = this.findArticleIndex(this.props.topicBundle, article);
+    const articleIndex = this.findArticleIndex(this.props.topicBundle, article);
     this.props.onPressHeader(this.props.topicBundle, articleIndex);
   }
 
   onLongPressHeader = (article) => {
-    let articleIndex = this.findArticleIndex(this.props.topicBundle, article);
+    const articleIndex = this.findArticleIndex(this.props.topicBundle, article);
     this.props.onLongPressHeader(this.props.topicBundle, articleIndex);
-    this.setState({ showingInitialArticle: !this.state.showingInitialArticle })
+    this.setState({ showingInitialArticle: !this.state.showingInitialArticle });
   }
 
   onPressContent = (article) => {
-    let articleIndex = this.findArticleIndex(this.props.topicBundle, article);
+    const articleIndex = this.findArticleIndex(this.props.topicBundle, article);
     this.props.onPressContent(this.props.topicBundle, articleIndex);
   }
 
   onLongPressContent = (article) => {
-    let articleIndex = this.findArticleIndex(this.props.topicBundle, article);
+    const articleIndex = this.findArticleIndex(this.props.topicBundle, article);
     this.props.onLongPressContent(this.props.topicBundle, articleIndex);
   }
 
+  getRandomArticleIndex = topicBundle => (
+    Math.floor(Math.random() * topicBundle.articles.length)
+  )
+
+  getMiddleArticleIndex = topicBundle => (
+    Math.floor((topicBundle.articles.length - 1) / 2)
+  )
+
+  getOppositeArticleIndex = (topicBundle, articleIndex) => {
+    const lastArticleIndex = topicBundle.articles.length - 1;
+    let oppositeArticleIndex = lastArticleIndex - articleIndex;
+    if (oppositeArticleIndex === articleIndex) {
+      oppositeArticleIndex += 1;
+    }
+    return oppositeArticleIndex;
+  }
+
+  getArticleAtIndex = (topicBundle, index) => (
+    topicBundle.articles[index]
+  )
+
+  findArticleIndex = (topicBundle, article) => (
+    topicBundle.articles.findIndex(
+      currentArticle => currentArticle.canonicalUrl === article.canonicalUrl,
+    )
+  )
+
   renderInitialArticle = () => {
-    let initialArticle = this.getArticleAtIndex(this.props.topicBundle, this.state.initialArticleIndex);
+    const article = this.getArticleAtIndex(this.props.topicBundle, this.state.initialArticleIndex);
     return (
       <ArticleCard
-        article={initialArticle}
+        article={article}
         onPressHeader={this.onPressHeader}
         onLongPressHeader={this.onLongPressHeader}
         onPressContent={this.onPressContent}
@@ -95,11 +93,13 @@ export default class TopicBundleCard extends Component {
   }
 
   renderFlippedArticle = () => {
-    let oppositeArticleIndex = this.getOppositeArticleIndex(this.props.topicBundle, this.state.initialArticleIndex);
-    let oppositeArticle = this.getArticleAtIndex(this.props.topicBundle, oppositeArticleIndex);
+    const oppositeArticleIndex =
+      this.getOppositeArticleIndex(this.props.topicBundle, this.state.initialArticleIndex);
+    const oppositeArticle =
+      this.getArticleAtIndex(this.props.topicBundle, oppositeArticleIndex);
     return (
       <ArticleCard
-        styleName='dark'
+        styleName={'dark'}
         article={oppositeArticle}
         onPressHeader={this.onPressHeader}
         onLongPressHeader={this.onLongPressHeader}

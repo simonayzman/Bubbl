@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Animated } from 'react-native';
-import { View, Button, Icon, Image } from '@shoutem/ui';
-import * as Animatable from 'react-native-animatable';
+import { View, Icon, Image } from '@shoutem/ui';
 import Carousel from 'react-native-carousel-control';
 import ArticleCard from './ArticleCard';
 
@@ -9,74 +8,67 @@ const SPECTRUM_WIDTH = 375;
 const PARTISAN_RANK_SIZE = 35;
 const LEFT_BOUNDARY = 0;
 const RIGHT_BOUNDARY = SPECTRUM_WIDTH - PARTISAN_RANK_SIZE;
-const PARTISAN_RANK_RANGE = SPECTRUM_WIDTH - PARTISAN_RANK_SIZE;
-const CENTER_COORDINATE = (LEFT_BOUNDARY + RIGHT_BOUNDARY) / 2;
 
 export default class TopicBundleCarousel extends Component {
 
   static propTypes = {
-    // Required, but coming in via navigation
-    // topicBundle: PropTypes.object.isRequired,
-    // initialArticleIndex: PropTypes.number.isRequired,
-    onOpenCarousel: PropTypes.func,
-    onCloseCarousel: PropTypes.func,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+      state: PropTypes.shape({
+        params: PropTypes.shape({
+          topicBundle: PropTypes.object.isRequired,
+          initialArticleIndex: PropTypes.number.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
   };
-
-  static defaultProps = {
-    onOpenCarousel: () => {},
-    onCloseCarousel: () => {},
-  }
 
   constructor(props) {
     super(props);
 
     const { topicBundle, initialArticleIndex } = props.navigation.state.params;
-    let partisanRankValue = this.getCurrentPartisanTranslation(topicBundle, initialArticleIndex)
+    const partisanRankValue = this.getCurrentPartisanTranslation(topicBundle, initialArticleIndex);
     this.state = {
       currentArticleIndex: initialArticleIndex,
       partisanRankAnimation: new Animated.Value(partisanRankValue),
-    }
+    };
   }
 
   onOpenArticle = (article) => {
     this.props.navigation.navigate('ArticlePage', { url: article.canonicalUrl });
   }
+  onArticleChange = (articleIndex) => {
+    const { topicBundle } = this.props.navigation.state.params;
+    const partisanRankTranslation = this.getCurrentPartisanTranslation(topicBundle, articleIndex);
+    Animated.spring(
+      this.state.partisanRankAnimation,
+      { toValue: partisanRankTranslation },
+    ).start();
+    this.setState({ currentArticleIndex: articleIndex });
+  }
 
   getCurrentPartisanTranslation = (topicBundle, articleIndex) => {
-    let article = topicBundle.articles[articleIndex];
-    let partisanRank = article.partisanRank;
-    var multiplier = 0;
-    var translation = 0;
+    const article = topicBundle.articles[articleIndex];
+    const partisanRank = article.partisanRank;
+    let multiplier = 0;
+    let translation = 0;
     if (partisanRank[0] !== 'N') {
       if (partisanRank[0] === 'L') {
         multiplier = -1;
       } else if (partisanRank[0] === 'C') {
         multiplier = 1;
       }
-      let strength = parseInt(partisanRank[1]);
+      const strength = parseInt(partisanRank[1], 10);
       translation = 0.2 * strength;
     }
     return multiplier * translation;
   }
 
-  onArticleChange = (articleIndex) => {
-    this.setState({
-      currentArticleIndex: articleIndex,
-    });
-    const { topicBundle } = this.props.navigation.state.params;
-    console.log(topicBundle, this.state)
-    let partisanRankTranslation = this.getCurrentPartisanTranslation(topicBundle, articleIndex)
-    Animated.spring(
-      this.state.partisanRankAnimation,
-      { toValue: partisanRankTranslation },
-    ).start();
-  }
-
   renderTopicBundleCarousel() {
     const { topicBundle } = this.props.navigation.state.params;
 
-    let carousel = []
-    for (let article of topicBundle.articles) {
+    const carousel = [];
+    for (const article of topicBundle.articles) {
       carousel.push((
         <ArticleCard
           key={article.canonicalUrl}
@@ -91,9 +83,9 @@ export default class TopicBundleCarousel extends Component {
   }
 
   render() {
-    let partisanRankTranslation = this.state.partisanRankAnimation.interpolate({
+    const partisanRankTranslation = this.state.partisanRankAnimation.interpolate({
       inputRange: [-1, 1],
-      outputRange: [LEFT_BOUNDARY, RIGHT_BOUNDARY]
+      outputRange: [LEFT_BOUNDARY, RIGHT_BOUNDARY],
     });
     return (
       <View style={{ flex: 1, backgroundColor: 'black' }}>
@@ -121,7 +113,7 @@ export default class TopicBundleCarousel extends Component {
           </Animated.View>
           <Image
             source={require('../../images/spectrum.png')}
-            style={{ width: SPECTRUM_WIDTH, height: 15}}
+            style={{ width: SPECTRUM_WIDTH, height: 15 }}
           />
         </View>
       </View>

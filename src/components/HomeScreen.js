@@ -2,16 +2,20 @@ import React, { Component, PropTypes } from 'react';
 import { Dimensions } from 'react-native';
 import { Image, View, ListView, Divider } from '@shoutem/ui';
 
-import * as Animatable from 'react-native-animatable';
-import Carousel from 'react-native-carousel-control';
 import Spinner from 'react-native-spinkit';
 import _ from 'lodash';
 
 import TopicBundleCard from './TopicBundleCard';
-import { randomShuffle } from '../services/random'
+import { randomShuffle } from '../services/random';
 import sampleData from '../sampleData';
 
 export default class HomeScreen extends Component {
+
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
 
   constructor() {
     super();
@@ -21,20 +25,44 @@ export default class HomeScreen extends Component {
       topicBundles: [],
       fakeRows: this.buildFakeRows(),
     };
-    this.fetchTopicBundles()
+    this.fetchTopicBundles();
   }
 
-  fetchTopicBundles = () => {
-    let topics = ['trump', 'judge', 'healthcare', 'congress', 'war', 'college']
+  onOpenArticle = (topicBundle, articleIndex) => {
+    const article = topicBundle.articles[articleIndex];
+    this.props.navigation.navigate(
+      'ArticlePage',
+      { url: article.canonicalUrl },
+    );
+  }
 
-    let topicBundlePromises = [];
-    for (let topic of topics) {
-      let topicBundleCall = this.fetchTopicBundle(topic)
-      topicBundlePromises.push(topicBundleCall)
+  onOpenCarousel = (topicBundle, articleIndex) => {
+    this.props.navigation.navigate(
+      'TopicBundleCarousel',
+      { topicBundle, initialArticleIndex: articleIndex },
+    );
+  }
+
+  buildFakeRows = () => (
+    [
+      require('../../images/ad.png'),
+      require('../../images/event.png'),
+      require('../../images/photoAlbum.png'),
+      require('../../images/instagramPhoto.png'),
+    ].map(image => ({ isFakeRow: true, source: image }))
+  )
+
+  fetchTopicBundles = () => {
+    const topics = ['trump', 'judge', 'healthcare', 'congress', 'war', 'college'];
+
+    const topicBundlePromises = [];
+    for (const topic of topics) {
+      const topicBundleCall = this.fetchTopicBundle(topic);
+      topicBundlePromises.push(topicBundleCall);
     }
     Promise.all(topicBundlePromises)
       .then((topicBundles) => {
-        let trimmedTopicBundles = _.compact(topicBundles);
+        const trimmedTopicBundles = _.compact(topicBundles);
         this.setState({
           topicBundles: trimmedTopicBundles,
           isLoading: false,
@@ -46,16 +74,15 @@ export default class HomeScreen extends Component {
           topicBundles: sampleData,
           isLoading: false,
         });
-      })
+      });
   }
 
   fetchTopicBundle = (topic) => {
-    let searchUrl = 'https://bubbl-server.herokuapp.com/news/bundle?search=';
-    let fullSearchUrl = searchUrl + topic;
-    return fetch(fullSearchUrl)
-      .then((response) => response.json())
+    const searchUrl = `https://bubbl-server.herokuapp.com/news/bundle?search=${topic}`;
+    return fetch(searchUrl)
+      .then(response => response.json())
       .then((jsonTopicBundle) => {
-        let topicBundleArticles = jsonTopicBundle.newsStories;
+        const topicBundleArticles = jsonTopicBundle.newsStories;
         if (topicBundleArticles.length < 3) {
           return null;
         }
@@ -63,52 +90,32 @@ export default class HomeScreen extends Component {
           id: topic,
           articles: topicBundleArticles,
         };
-      }
-    );
-  }
-
-  buildFakeRows() {
-    let rows = [
-      require('../../images/ad.png'),
-      require('../../images/event.png'),
-      require('../../images/photoAlbum.png'),
-      require('../../images/instagramPhoto.png'),
-    ];
-    let transformedRows = rows.map((element) => ({ isFakeRow: true, source: element }))
-    return transformedRows;
-  }
-
-  onOpenArticle = (topicBundle, articleIndex) => {
-    let article = topicBundle.articles[articleIndex];
-    this.props.navigation.navigate('ArticlePage', { url: article.canonicalUrl })
-  }
-
-  onOpenCarousel = (topicBundle, articleIndex) => {
-    this.props.navigation.navigate('TopicBundleCarousel', { topicBundle, initialArticleIndex: articleIndex })
+      });
   }
 
   renderFeedHeader = () => {
-    var { width } = Dimensions.get('window');
+    const { width } = Dimensions.get('window');
     return (
       <View style={{ alignItems: 'center'}}>
-        <Image source={require('../../images/topAction.png')} style={{ width, borderColor: '#d3d3d3', borderWidth: 0.5 }}/>
-        <Image source={require('../../images/prompt.png')} style={{ width }}/>
+        <Image source={require('../../images/topAction.png')} style={{ width, borderColor: '#d3d3d3', borderWidth: 0.5 }} />
+        <Image source={require('../../images/prompt.png')} style={{ width }} />
         <Divider style={{ backgroundColor: 'transparent' }} />
       </View>
-    )
+    );
   }
 
   renderFeedRow = (data) => {
     let feedRow = null;
     if (data.isFakeRow) {
-      feedRow = (<Image source={data.source}/>);
+      feedRow = (<Image source={data.source} />);
     } else {
       feedRow = (
         <TopicBundleCard
           topicBundle={data}
           onPressContent={this.onOpenArticle}
           onLongPressContent={this.onOpenCarousel}
-        />);
+        />
+      );
     }
     return (
       <View style={{ alignItems: 'center' }}>
@@ -128,15 +135,15 @@ export default class HomeScreen extends Component {
           type={'Bounce'}
           color={'#3B5998'}
         />
-      )
+      );
     }
 
-    if (this.state.topicBundles.length == 0) {
-      return null
+    if (this.state.topicBundles.length === 0) {
+      return null;
     }
 
-    let combinedFeed = this.state.topicBundles.concat(this.state.fakeRows);
-    let randomizedFeed = randomShuffle(combinedFeed);
+    const combinedFeed = this.state.topicBundles.concat(this.state.fakeRows);
+    const randomizedFeed = randomShuffle(combinedFeed);
 
     return (
       <ListView
