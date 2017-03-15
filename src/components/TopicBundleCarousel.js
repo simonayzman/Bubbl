@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { Animated } from 'react-native';
 import { View, Icon, Image } from '@shoutem/ui';
 import Carousel from 'react-native-carousel-control';
+import { Actions } from 'react-native-router-flux';
+
 import ArticleCard from './ArticleCard';
 
 const SPECTRUM_WIDTH = 375;
@@ -12,21 +14,14 @@ const RIGHT_BOUNDARY = SPECTRUM_WIDTH - PARTISAN_RANK_SIZE;
 export default class TopicBundleCarousel extends Component {
 
   static propTypes = {
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func.isRequired,
-      state: PropTypes.shape({
-        params: PropTypes.shape({
-          topicBundle: PropTypes.object.isRequired,
-          initialArticleIndex: PropTypes.number.isRequired,
-        }).isRequired,
-      }).isRequired,
-    }).isRequired,
+    topicBundle: PropTypes.object.isRequired,
+    initialArticleIndex: PropTypes.number.isRequired,
   };
 
   constructor(props) {
     super(props);
 
-    const { topicBundle, initialArticleIndex } = props.navigation.state.params;
+    const { topicBundle, initialArticleIndex } = props;
     const partisanRankValue = this.getCurrentPartisanTranslation(topicBundle, initialArticleIndex);
     this.state = {
       currentArticleIndex: initialArticleIndex,
@@ -35,10 +30,11 @@ export default class TopicBundleCarousel extends Component {
   }
 
   onOpenArticle = (article) => {
-    this.props.navigation.navigate('ArticlePage', { url: article.canonicalUrl });
+    Actions.article({ url: article.canonicalUrl });
   }
+  
   onArticleChange = (articleIndex) => {
-    const { topicBundle } = this.props.navigation.state.params;
+    const { topicBundle } = this.props;
     const partisanRankTranslation = this.getCurrentPartisanTranslation(topicBundle, articleIndex);
     Animated.spring(
       this.state.partisanRankAnimation,
@@ -65,8 +61,7 @@ export default class TopicBundleCarousel extends Component {
   }
 
   renderTopicBundleCarousel() {
-    const { topicBundle } = this.props.navigation.state.params;
-
+    const { topicBundle } = this.props;
     const carousel = [];
     for (const article of topicBundle.articles) {
       carousel.push((

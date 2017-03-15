@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Dimensions } from 'react-native';
 import { Image, View, ListView, Divider } from '@shoutem/ui';
-
+import { Actions } from 'react-native-router-flux';
 import Spinner from 'react-native-spinkit';
 import _ from 'lodash';
 
@@ -10,12 +10,6 @@ import { randomShuffle } from '../services/random';
 import sampleData from '../sampleData';
 
 export default class HomeScreen extends Component {
-
-  static propTypes = {
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func.isRequired,
-    }).isRequired,
-  };
 
   constructor() {
     super();
@@ -30,17 +24,11 @@ export default class HomeScreen extends Component {
 
   onOpenArticle = (topicBundle, articleIndex) => {
     const article = topicBundle.articles[articleIndex];
-    this.props.navigation.navigate(
-      'ArticlePage',
-      { url: article.canonicalUrl },
-    );
+    Actions.article({ url: article.canonicalUrl });
   }
 
   onOpenCarousel = (topicBundle, articleIndex) => {
-    this.props.navigation.navigate(
-      'TopicBundleCarousel',
-      { topicBundle, initialArticleIndex: articleIndex },
-    );
+    Actions.topic({ topicBundle, initialArticleIndex: articleIndex });
   }
 
   buildFakeRows = () => (
@@ -146,12 +134,14 @@ export default class HomeScreen extends Component {
     const randomizedFeed = randomShuffle(combinedFeed);
 
     return (
-      <ListView
-        data={randomizedFeed}
-        loading={this.state.isLoading}
-        renderRow={this.renderFeedRow}
-        renderHeader={this.renderFeedHeader}
-      />
+      <View style={{ flex: 1, backgroundColor: '#ededed' }}>
+        <ListView
+          data={randomizedFeed}
+          loading={this.state.isLoading}
+          renderRow={this.renderFeedRow}
+          renderHeader={this.renderFeedHeader}
+        />
+      </View>
     );
   }
 }
