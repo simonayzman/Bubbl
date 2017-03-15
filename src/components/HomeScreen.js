@@ -1,13 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Dimensions } from 'react-native';
 import { Image, View, ListView, Divider } from '@shoutem/ui';
 import { Actions } from 'react-native-router-flux';
 import Spinner from 'react-native-spinkit';
-import _ from 'lodash';
 
 import TopicBundleCard from './TopicBundleCard';
 import { randomShuffle } from '../services/random';
-import sampleData from '../sampleData';
 
 export default class HomeScreen extends Component {
 
@@ -41,43 +39,19 @@ export default class HomeScreen extends Component {
   )
 
   fetchTopicBundles = () => {
-    const topics = ['trump', 'judge', 'healthcare', 'congress', 'war', 'college'];
-
-    const topicBundlePromises = [];
-    for (const topic of topics) {
-      const topicBundleCall = this.fetchTopicBundle(topic);
-      topicBundlePromises.push(topicBundleCall);
-    }
-    Promise.all(topicBundlePromises)
+    const searchUrl = 'https://bubbl-server.herokuapp.com/news/bundles';
+    return fetch(searchUrl, { timeout: 200 })
+      .then(response => response.json())
       .then((topicBundles) => {
-        const trimmedTopicBundles = _.compact(topicBundles);
+        console.log('Successfully fetched: ', topicBundles)
         this.setState({
-          topicBundles: trimmedTopicBundles,
+          topicBundles,
           isLoading: false,
         });
       })
       .catch(() => {
         console.warning('Not connected to the internet.')
-        this.setState({
-          topicBundles: sampleData,
-          isLoading: false,
-        });
-      });
-  }
-
-  fetchTopicBundle = (topic) => {
-    const searchUrl = `https://bubbl-server.herokuapp.com/news/bundle?search=${topic}`;
-    return fetch(searchUrl)
-      .then(response => response.json())
-      .then((jsonTopicBundle) => {
-        const topicBundleArticles = jsonTopicBundle.newsStories;
-        if (topicBundleArticles.length < 3) {
-          return null;
-        }
-        return {
-          id: topic,
-          articles: topicBundleArticles,
-        };
+        this.setState({ isLoading: false });
       });
   }
 

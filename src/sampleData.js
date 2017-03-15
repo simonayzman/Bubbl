@@ -1,396 +1,309 @@
 const sampleData = [{
-  id: 'trump',
+  id: '\'obamacare\'',
+  articles: [{
+    partisanRank: 'L3',
+    source: 'The New York Times',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/420194_448960124998_2006714158_n.jpg?oh=eb474d03a773119e1fb0e2ecb7f7be54&oe=596B7F80',
+    date: '2017-03-14',
+    headline: 'The Original Lie About Obamacare',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAUz0aymFv32ikP&url=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2017%2F03%2F14%2Fopinion%2F14leonhardtWeb%2F14leonhardtWeb-facebookJumbo.jpg&_nc_hash=AQDvB0Ulo6xZ4bF1',
+    description: 'And how that lie led the Republicans into the mess they’re now in.',
+    canonicalUrl: 'https://www.nytimes.com/2017/03/14/opinion/the-original-lie-about-obamacare.html?smid=fb-nytimes&smtyp=cur'
+  }, {
+    partisanRank: 'L2',
+    source: 'Daily Kos',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12794441_10154047834719255_5302242364924208190_n.jpg?oh=c0bf85f83df68c3148e2f4462bb88ce0&oe=59287F49',
+    date: '2017-03-14',
+    headline: 'Know What Makes Nebraskans Confrontational? Threaten to Take Away Their Obamacare!',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDeMnlRMtEErNbz&url=http%3A%2F%2Fimages.dailykos.com%2Fimages%2F377158%2Fstory_image%2FFort4.JPG%3F1489469387&_nc_hash=AQDmdn4tiTUy3CnU',
+    description: 'Responding to a flood of constituent requests to his office, US Congressman Jeff Fortenberry of Nebraska’s 1st District gave just three days notice to the public of a community town hall on Monday, 3/14/17 at 5:30 pm in Lincoln. 800+ Nebraskans...',
+    canonicalUrl: 'http://www.dailykos.com/stories/2017/3/13/1643073/-Know-What-Makes-Nebraskans-Confrontational-Threaten-to-Take-Away-Their-Obamacare?detail=facebook'
+  }, {
+    partisanRank: 'L1',
+    source: 'USA TODAY',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1010865_10151474071775667_343037047_n.png?oh=46b389c33501affd009d70a4bb10a406&oe=596A2E07',
+    date: '2017-03-14',
+    headline: 'Fact check: How accurate were CBO’s Obamacare predictions?',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBOB10VIrMFNMrb&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F083d16905ee2b8d439f17c535bbb84725e15b14f%2Fc%3D0-0-3683-2081%26r%3Dx1683%26c%3D3200x1680%2Flocal%2F-%2Fmedia%2F2017%2F03%2F14%2FUSATODAY%2FUSATODAY%2F636250810944554335-AP-Health-Care-Overhaul.jpg&_nc_hash=AQBfb9CzHrOlb5Kt',
+    description: 'So, was the Congressional Budget Office really “way, way off … in every aspect” of how it predicted that Obamacare would work, as the White House...',
+    canonicalUrl: 'http://usat.ly/2mFwKzy'
+  }, {
+    partisanRank: 'N',
+    source: 'Detroit Free Press',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10670012_10152773537200530_758277983470617508_n.jpg?oh=da5719f93bf5ec0fc84b9ade3708ad9e&oe=596E9768',
+    date: '2017-03-14',
+    headline: 'Obamacare replacement hits Michigan\'s working poor the hardest',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQD5DWIC_7kPiNkn&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F9a0629bb9384864ef713eb243b19b9c340befc47%2Fc%3D0-278-5472-3370%26r%3Dx1683%26c%3D3200x1680%2Flocal%2F-%2Fmedia%2F2017%2F02%2F20%2FDetroitFreePress%2FDetroitFreePress%2F636231919562126130-AP-Congress-OTK.jpg&_nc_hash=AQCAu-oihhGrGxuT',
+    description: 'Nonpartisan analysis suggests Michigan\'s Medicaid expansion will be hit hard by Republican health care plan',
+    canonicalUrl: 'http://www.freep.com/story/news/politics/2017/03/13/obamacare-replacement-hits-michigans-working-poor-hardest/99142552/'
+  }, {
+    partisanRank: 'C1',
+    source: 'The Hill',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12985451_10153703672994087_5860860619868875285_n.jpg?oh=466f9495f0a23d82bad4db1a27d3afd3&oe=596925E9',
+    date: '2017-03-14',
+    headline: 'GOP lawmaker: I will vote against GOP healthcare bill',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAJRsSlcNdeURiz&url=http%3A%2F%2Fthehill.com%2Fsites%2Fdefault%2Ffiles%2Farticle_images%2Froslehtinen031417getty.jpg&_nc_hash=AQCGGDgthCJ3F-oE',
+    description: 'Her opposition signals a major problem for Paul Ryan in winning the support of moderate Republicans.',
+    canonicalUrl: 'http://hill.cm/sgpCTLK'
+  }, {
+    partisanRank: 'C3',
+    source: 'Fox News',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/417751_10150581617531336_1949382366_n.jpg?oh=9415eb9a2479841902ad4d414266a1c2&oe=592C2286',
+    date: '2017-03-14',
+    headline: 'Eric Bolling: RyanCare Is Still ObamaCare. Here Are Five Ways to Start Over',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDm50b6JVkR3v5O&url=http%3A%2F%2Fa57.foxnews.com%2Fmedia2.foxnews.com%2FBrightCove%2F694940094001%2F2017%2F03%2F13%2F0%2F0%2F694940094001_5358115852001_5358096556001-vs.jpg%3Fve%3D1&_nc_hash=AQB0Fngsbtkbnzwx',
+    description: 'As a staunch conservative and loyal supporter of President Trump from the very beginning, I am outraged by the events of the last two weeks.',
+    canonicalUrl: 'http://www.foxnews.com/opinion/2017/03/14/eric-bolling-ryancare-is-still-obamacare-here-are-five-ways-to-start-over.html'
+  }, {
+    partisanRank: 'C4',
+    source: 'The Dallas Morning News',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14449982_10154169096853800_1585672512449107797_n.png?oh=6d947399e7c0ac720aa91197ab9d7401&oe=5973D7D5',
+    date: '2017-03-14',
+    headline: 'Low-income Texans would see federal assistance drop in GOP health care plan',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDuwPhB4XZkaTIa&url=https%3A%2F%2Fdallasnews.imgix.net%2F1489423210-650498112.jpg%3Fw%3D1200%26h%3D630%26format%3Djpg%26crop%3Dfaces%26fit%3Dcrop&_nc_hash=AQBpF24LsHJrYpZ_',
+    description: 'Middle-class Texans who saw no federal help in paying for Obamacare would get some relief under the new GOP health care plan.',
+    canonicalUrl: 'http://www.dallasnews.com/news/politics/2017/03/13/low-income-texans-see-federal-assistance-drop-gop-health-care-plan'
+  }, {
+    partisanRank: 'C5',
+    source: 'The Kansas City Star',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c17.17.216.216/s50x50/263663_10150201074764094_4071675_n.jpg?oh=063929e2244b10e17f839ed3547581a5&oe=595D3F1C',
+    date: '2017-03-14',
+    headline: 'Beyond the Bubble: White House leans on state Republicans to sell GOP healthcare plan',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDQcLFZ1PZ2nYWV&url=http%3A%2F%2Fpics.mcclatchyinteractive.com%2Fnews%2Fpolitics-government%2F7e7qez%2Fpicture138365773%2FALTERNATES%2FLANDSCAPE_1140%2FAP_17066807264489&_nc_hash=AQAoLSklRyovFAxL',
+    description: '"I don\'t think anyone really wants to go all-in on this plan"—lawmakers in Missouri and Kansas aren\'t exactly embracing "Obamacare 2.0," Bryan Lowry explains in our latest politics podcast.',
+    canonicalUrl: 'http://www.kansascity.com/news/politics-government/article138365778.html#btb'
+  }]
+}, {
+  id: '\'theresa-may\'',
+  articles: [{
+    partisanRank: 'L5',
+    source: 'The Times of India',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14457373_10154629036722139_4431901373813970507_n.jpg?oh=421f3d5e364765cff5dab6ba916586c2&oe=592BD105',
+    date: '2017-03-14',
+    headline: 'Theresa May says will have Brexit trigger in \'coming days\'',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAOQgSGbVI_z84a&url=fbstaging%3A%2F%2Fgraph.facebook.com%2Fstaging_resources%2FMDExMDE1NTE4NDE0NzM2NzEzOTo2NjU4NjQzMg%3D%3D&_nc_hash=AQDF_Rmpm3oTC8hP',
+    description: '"We remain on track with the timetable I set out six months ago," Theresa May said.',
+    canonicalUrl: 'http://timesofindia.indiatimes.com/world/uk/theresa-may-says-will-have-brexit-trigger-in-coming-days/articleshow/57634338.cms?utm_source=facebook.com&utm_medium=referral&utm_campaign=TOI'
+  }, {
+    partisanRank: 'L3',
+    source: 'BBC News',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1926656_10151955586072217_265500303_n.png?oh=be3a78104d9320dc8f34b3261493a822&oe=595C705C',
+    date: '2017-03-14',
+    headline: '#IndyRef2: Theresa May \'should not block referendum\'',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDwtn47rlZ93kft&url=http%3A%2F%2Fichef-1.bbci.co.uk%2Fnews%2F1024%2Fcpsprodpb%2F102B0%2Fproduction%2F_95142266_pa.jpg&_nc_hash=AQBp3geqK-LAI72q',
+    description: ' ',
+    canonicalUrl: 'http://bbc.in/2mEZAjv'
+  }, {
+    partisanRank: 'L2',
+    source: 'The Independent',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/11051795_10152732082756636_6705742038347351188_n.png?oh=601cf9bc5dda3232bc25396590ec2133&oe=5927D6A8',
+    date: '2017-03-14',
+    headline: 'Theresa May \'will block Nicola Sturgeon second Scottish independence referendum\'',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAE1eyT0QqflfHr&url=https%3A%2F%2Fstatic.independent.co.uk%2Fs3fs-public%2Fthumbnails%2Fimage%2F2017%2F03%2F14%2F07%2Ftheresa-may-1.jpg&_nc_hash=AQBirGacysmJPm2S',
+    description: 'Whoa',
+    canonicalUrl: 'http://www.independent.co.uk/news/uk/politics/theresa-may-nicola-sturgeon-scottish-independence-second-referendum-a7628491.html?cmpid=facebook-post'
+  }, {
+    partisanRank: 'L1',
+    source: 'Bloomberg',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12938226_10154061886856880_2984669091353955247_n.png?oh=01b8dc7073533d3069048770ad5d660b&oe=596EFF90',
+    date: '2017-03-14',
+    headline: 'Pound Tumbles After Theresa May Receives the Brexit Go-Ahead',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBbDShg3xgcEY14&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F3687-89813ec7bf15e286c3e708297e422dc2.jpg&_nc_hash=AQA8K9KMIqyO1NzE',
+    description: 'It\'s fallen against all of its Group-of-10 peers.',
+    canonicalUrl: 'http://bloom.bg/2mmyex0'
+  }, {
+    partisanRank: 'N',
+    source: 'Daily Mail',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1231156_586524008074018_1083454926_n.png?oh=4aa9af1e3ff1611171dbc520d57d32dc&oe=59621528',
+    date: '2017-03-14',
+    headline: 'Sturgeon insists she DOES have a mandate to call a Scottish independence vote',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAUh9rt1rj0ef7w&url=http%3A%2F%2Fi.dailymail.co.uk%2Fi%2Fpix%2F2017%2F03%2F14%2F11%2F3E420E3E00000578-0-image-a-29_1489491486301.jpg&_nc_hash=AQDLEWW5arFfxddg',
+    description: 'The SNP leader said she had been elected on a bigger share of the vote than the Tories secured in Westminster in 2015 and taunted the Prime Minister over not being \'elected by anyone\'.',
+    canonicalUrl: 'http://dailym.ai/2mIniNx'
+  }, {
+    partisanRank: 'C1',
+    source: 'Daily Express',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/11665416_1118578774869047_898942630122989843_n.jpg?oh=96c46459d1f7458e6bf64413f0896f2f&oe=592E0993',
+    date: '2017-03-14',
+    headline: '\'At least I was elected!\' Nicola Sturgeon takes vicious SWIPE at May in brutal Twitter dig',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDFi4L4sdeBuAEi&url=fbstaging%3A%2F%2Fgraph.facebook.com%2Fstaging_resources%2FMDExNTQ2MTIwMTE1NDQ4MjQyOjcyMzkzODA1Ng%3D%3D&_nc_hash=AQCsx5gnOOUhKFfx',
+    description: 'NICOLA STURGEON has taken a swipe at Theresa May this morning - reminding the Prime Minister she was never elected by the voting public.',
+    canonicalUrl: 'http://www.express.co.uk/news/politics/778972/nicola-sturgeon-theresa-may-scottish-referendum-twitter-elected'
+  }]
+}, {
+  id: '\'trump-tower\'',
+  articles: [{
+    partisanRank: 'L2',
+    source: 'NBC News',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1621673_805591539460878_8753611874853200748_n.png?oh=dc09a6711f42a37a040d1695737ffdec&oe=5930EDCB',
+    date: '2017-03-14',
+    headline: 'Justice Dept. asks for more time in Trump "wiretap" evidence request',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDcDl2H4xh1tUPu&url=http%3A%2F%2Fmedia3.s-nbcnews.com%2Fj%2Fnewscms%2F2017_11%2F1932076%2F170313-trump-tower-mn-0905_fb27357a82607de4993e79fb207a7ea5.nbcnews-fp-1200-800.jpg&_nc_hash=AQADA91rTgVG-vGq',
+    description: 'Lawmakers may resort to a "compulsory process" if it doesn\'t get answers, a spokesman said.',
+    canonicalUrl: 'http://nbcnews.to/2nhZOA9'
+  }, {
+    partisanRank: 'L1',
+    source: 'The Raw Story',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c52.53.257.257/s50x50/10360839_10152703508732235_6694429870530559967_n.jpg?oh=a8652ddcb98e984fe4dbcd1d7c80a755&oe=592C7523',
+    date: '2017-03-14',
+    headline: '‘Were you lying, Mr. President?’: Mika Brzezinski slams Trump for missing wiretap proof deadline',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDVJjcK_gel0_H8&url=http%3A%2F%2Fwww.rawstory.com%2Fwp-content%2Fuploads%2F2017%2F03%2FScreen-Shot-2017-03-14-at-6.15.32-AM-800x430.png&_nc_hash=AQAgJXO4nyfeXHlG',
+    description: 'The deadline came and went for President Donald Trump to provide evidence to Congress that former President Barack Obama wiretapped him in Trump Tower. “Morning Joe” host Mika Brzezinski',
+    canonicalUrl: 'http://www.rawstory.com/2017/03/were-you-lying-mr-president-mika-brzezinski-slams-trump-for-wiretap-proof-deadline-629-am-got-it/'
+  }, {
+    partisanRank: 'N',
+    source: 'Orlando Sentinel',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12801602_10153867140557557_2498446881977730040_n.jpg?oh=be1b7829fcb896f921b93dd0b301dae8&oe=595AF179',
+    date: '2017-03-15',
+    headline: 'Spicer says Trump is \'extremely confident\' DOJ will find evidence to back up wiretap claim',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBdH-fchDOC7sZu&url=http%3A%2F%2Fwww.trbimg.com%2Fimg-58c8619c%2Fturbine%2Fct-trump-wiretap-claim-20170314&_nc_hash=AQDx9B_Ijs8TKNZv',
+    description: 'President Donald Trump is "extremely confident" that the Justice Department will find evidence to back up his claim that former president Barack Obama "had my \'wires tapped\' in Trump Tower" during the presidential campaign, even as the White House seeks to discourage the public from taking the president\'s comments literally.',
+    canonicalUrl: 'http://www.orlandosentinel.com/news/politics/ct-trump-wiretap-claim-20170314-story.html'
+  }, {
+    partisanRank: 'C1',
+    source: 'The Hill',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12985451_10153703672994087_5860860619868875285_n.jpg?oh=466f9495f0a23d82bad4db1a27d3afd3&oe=596925E9',
+    date: '2017-03-14',
+    headline: 'White House: Trump \'confident\' Justice Dept will find evidence of his wiretapping claim',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBd8RCcH3LqTTLK&url=http%3A%2F%2Fthehill.com%2Fsites%2Fdefault%2Ffiles%2Farticle_images%2Fobamatrumphandshake_111016gety.jpg&_nc_hash=AQBTpUtinG2Qaz3h',
+    description: 'The Justice Department asked for more time to provide the House Intelligence Committee with evidence.',
+    canonicalUrl: 'http://hill.cm/oIT3O04'
+  }]
+}, {
+  id: '\'steve-king\'',
   articles: [{
     partisanRank: 'L4',
     source: 'The Mercury News',
     sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12933141_10154171446216337_975613998513985552_n.jpg?oh=041b8f1f031d7215f3ba54172010b152&oe=596620DE',
-    date: '2017-03-12',
-    headline: 'Photos: Melania Trump begins to embrace new role as first lady',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAhYzFtNNiKLoJS&url=https%3A%2F%2Fechobox-media.s3.amazonaws.com%2Fsocial_media_images%2F443%2F443-1489270970-1p295hrhjuhi6ti9hdhcmiiu9fu7c6ga.jpg&_nc_hash=AQCiMV6vd2hlJBRU',
-    description: 'Melania Trump’s invitation for high-powered women to join her at the White House was about more than the lunch they would eat, or the stated purpose of honoring ...',
-    canonicalUrl: 'https://www.facebook.com/mercurynews/posts/10155296833441337'
-  },
-  {
+    date: '2017-03-14',
+    headline: 'Eugene Robinson: White supremacism soars back into mainstream with Rep. Steve King',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCamMIEMvca0dl5&url=https%3A%2F%2Fechobox-media.s3.amazonaws.com%2Fsocial_media_images%2F443%2F443-1489516129-j28b24131tfaq1c38j02rbi9fpv93qaj.jpg&_nc_hash=AQARem0zxypKKBmn',
+    description: 'Iowa Rep. Steve King, in the era of Donald Trump, brings white supremacism back in to the mainstream with unapologetic tweets about ‘Other people’s babies’.',
+    canonicalUrl: 'http://bayareane.ws/2mG79Xq'
+  }, {
     partisanRank: 'L3',
-    source: 'San Francisco Chronicle',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c1.0.50.50/p50x50/12744176_10153903009384524_2043072041592185478_n.jpg?oh=923238ae164d0d9433149460b05d3c36&oe=592C0E21',
-    date: '2017-03-12',
-    headline: '3 terrifying possible reasons for Trump’s rant about Obama | Robert Reich',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDEYpbNgkvohslV&url=http%3A%2F%2Fww3.hdnux.com%2Fphotos%2F57%2F53%2F45%2F12499270%2F5%2FrawImage.jpg&_nc_hash=AQCe7pF8T_hJdBhE',
-    description: 'Whatever the reason for Trump’s rant, America is in deep trouble.',
-    canonicalUrl: 'https://www.facebook.com/sanfranciscochronicle/posts/10155131105814524'
-  },
-  {
+    source: 'The New York Times',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/420194_448960124998_2006714158_n.jpg?oh=eb474d03a773119e1fb0e2ecb7f7be54&oe=596B7F80',
+    date: '2017-03-14',
+    headline: 'Steve King, Hurling Insults at Immigrants, Is Rebuked by His Own Party',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAlK0cVdPVes6sY&url=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2017%2F03%2F14%2Fus%2F14king%2F14king-facebookJumbo.jpg&_nc_hash=AQDvxnvj0kQZvtMH',
+    description: 'The comment on Twitter about immigrants by the Iowa Representative was praised by the white supremacist David Duke, but many Republicans were quick to condemn his inflammatory rhetoric.',
+    canonicalUrl: 'https://www.nytimes.com/2017/03/13/us/politics/steve-king-babies-civilization.html?smid=fb-nytimes&smtyp=cur'
+  }, {
     partisanRank: 'L2',
-    source: 'The Hollywood Reporter',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10411111_10152362746067750_5893148296353161546_n.jpg?oh=2dcd5bfe02397f3263f030462d9bf832&oe=59700F81',
-    date: '2017-03-12',
-    headline: 'Scarlett Johansson is Ivanka Trump in "Complicit" Perfume Ad on \'SNL\'',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQD2TQbgsGGVA8ji&url=http%3A%2F%2Fcdn1.thr.com%2Fsites%2Fdefault%2Ffiles%2F2017%2F03%2Fscarjo_as_ivanka.jpg&_nc_hash=AQDXs8L-wGih0lS9',
-    description: '"She’s beautiful, she’s powerful, she’s complicit."',
-    canonicalUrl: 'https://www.facebook.com/HollywoodReporter/posts/10154231173837750'
-  },
-  {
+    source: 'CNN',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12289622_10154246192721509_1897912583584847639_n.png?oh=10ddeffb05da472de8a731a4792d47b2&oe=592A24DF',
+    date: '2017-03-14',
+    headline: 'Steve King: Blacks and Hispanics \'will be fighting each other\' before overtaking whites in population',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQA8PS1sfkM39xP_&url=http%3A%2F%2Fi2.cdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170313084542-steve-king-babies-1-super-tease.jpg&_nc_hash=AQByY2Qx1sCQMyp6',
+    description: ' ',
+    canonicalUrl: 'http://cnn.it/2nk6OfS'
+  }, {
     partisanRank: 'L1',
-    source: 'Washington Post',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13626470_10153958733697293_5637011089315584460_n.png?oh=8e9c74b3a74d1efb329cbb6af6de5f69&oe=59617D68',
-    date: '2017-03-12',
-    headline: 'McCain to Trump: Retract wiretapping claim or prove it',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDHaSPruT9D0qXg&url=https%3A%2F%2Fimg.washingtonpost.com%2Frf%2Fimage_1484w%2F2010-2019%2FWashingtonPost%2F2016%2F10%2F17%2FEditorial-Opinion%2FImages%2FSenate_2016_Arizona_Debate-b230d-1702.jpg&_nc_hash=AQBUGeekGFaFkazW',
-    description: '\'I have no reason to believe that the charge is true,\' the Republican senator said.',
-    canonicalUrl: 'https://www.facebook.com/washingtonpost/posts/10154870814102293'
-  },
-  {
-    partisanRank: 'N',
-    source: 'NBC News',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1621673_805591539460878_8753611874853200748_n.png?oh=dc09a6711f42a37a040d1695737ffdec&oe=5930EDCB',
-    date: '2017-03-12',
-    headline: 'After pledging to donate salary, Trump administration declines to release proof',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAQnCcu6tJz2SDs&url=http%3A%2F%2Fmedia1.s-nbcnews.com%2Fj%2Fnewscms%2F2017_10%2F1924711%2F170306-trump-oval-office-white-house-948p_c0450f180bfdc7077ce6d119a0cfa747.nbcnews-fp-1200-800.jpg&_nc_hash=AQB9wPTDfFuV8emH',
-    description: 'Federal law mandates the president receive a $400,000 annual salary, paid out once a month.',
-    canonicalUrl: 'https://www.facebook.com/NBCNews/posts/1736238889729467'
-  },
-  {
+    source: 'The Raw Story',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c52.53.257.257/s50x50/10360839_10152703508732235_6694429870530559967_n.jpg?oh=a8652ddcb98e984fe4dbcd1d7c80a755&oe=592C7523',
+    date: '2017-03-14',
+    headline: 'Major Iowa paper drops the hammer on the GOP: If you disagree with Steve King’s racism — end his career',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQA5wiBTY03qd7KI&url=http%3A%2F%2Fwww.rawstory.com%2Fwp-content%2Fuploads%2F2017%2F03%2Fsteve-king-800x430.jpg&_nc_hash=AQCXTyrzP1-K4r-F',
+    description: 'Over the weekend, Iowa Rep. Steve King praised Dutch politician Geert Wilders and endorsed the right-wing lawmaker’s anti-immigration stance.',
+    canonicalUrl: 'http://www.rawstory.com/2017/03/major-iowa-paper-drops-the-hammer-on-the-gop-if-you-disagree-with-steve-kings-racism-end-his-career/'
+  }, {
     partisanRank: 'C1',
     source: 'The Hill',
     sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12985451_10153703672994087_5860860619868875285_n.jpg?oh=466f9495f0a23d82bad4db1a27d3afd3&oe=596925E9',
-    date: '2017-03-12',
-    headline: 'House Intel Committee asks Trump to give evidence of wiretapping claims by Monday',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCJEP24B6njkKCV&url=http%3A%2F%2Fthehill.com%2Fsites%2Fdefault%2Ffiles%2Fblogs%2Ftrump635100034.jpg&_nc_hash=AQCNLZm2d2HtznDs',
-    description: 'Trump has kept his distance from the press since making the accusation.',
-    canonicalUrl: 'https://www.facebook.com/TheHill/posts/10154653875024087'
-  },
-  {
-    partisanRank: 'C2',
-    source: 'The Florida Times-Union',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/282294_10150913583864790_1387558218_n.jpg?oh=31949bdcaa84143311ecd1c8c7c24a1c&oe=59341489',
-    date: '2017-03-12',
-    headline: 'McCain to Trump: Provide wiretap evidence or retract claim',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBCTjdXujoBLsN1&url=http%3A%2F%2Fjacksonville.com%2Fsites%2Fdefault%2Ffiles%2Ffield%2Fimage%2F1620078_web0_031317JohnMcCain1240.jpg&_nc_hash=AQBDvVDRYKdhYm-B',
-    description: 'Associated Press',
-    canonicalUrl: 'https://www.facebook.com/FLTimesUnion/posts/10154611167944790'
-  },
-  {
+    date: '2017-03-14',
+    headline: 'Pelosi demands GOP strip Steve King of committee chair over \'racist\' remarks',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCFb3tZCQR3n7Lf&url=http%3A%2F%2Fthehill.com%2Fsites%2Fdefault%2Ffiles%2Fpelosinancy_030917gn_lead.jpg&_nc_hash=AQDOmNXidauEIM2J',
+    description: '"Steve King’s racist statements must be called out as unacceptable, and the tepid, brush-off response from the Speaker and the GOP leadership is disgraceful."',
+    canonicalUrl: 'http://hill.cm/6tHMCMO'
+  }, {
     partisanRank: 'C3',
-    source: 'The Denver Post',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1185249_10151638533154440_2044291716_n.jpg?oh=a9c37bdb23e9aa7f02f41ed58777c9cd&oe=592E2B82',
-    date: '2017-03-12',
-    headline: 'House panel wants any evidence Trump’s phones were tapped',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC-OF2tafUb6GeJ&url=http%3A%2F%2Fwww.denverpost.com%2Fwp-content%2Fuploads%2F2017%2F03%2F644947488.jpg%3Fw%3D1024%26h%3D683&_nc_hash=AQAIIQ9n_ND6cMjb',
-    description: 'The request was made in a letter sent by committee chairman, Rep. Devin Nunes, R-Calif., and the panel’s ranking Democrat, Rep. Adam Schiff, D-Calif.',
-    canonicalUrl: 'https://www.facebook.com/denverpost/posts/10154653940719440'
-  },
-  {
-    partisanRank: 'C5',
-    source: 'Knoxville News Sentinel',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14724529_10154516507302649_2882560088089650079_n.png?oh=a0b3c498354f7ae3c12d09dad592c1ee&oe=592710A7',
-    date: '2017-03-12',
-    headline: 'EPA cuts could be costly to Tennessee',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC7irkZMCzoSoTz&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F2736d7a6d12f28b3e75e8e6ed84c1e27359398ac%2Fc%3D0-0-5561-3142%26r%3Dx1683%26c%3D3200x1680%2Flocal%2F-%2Fmedia%2F2017%2F02%2F08%2FTennGroup%2FKnoxville%2F636221592840053835-McClung-03.jpg&_nc_hash=AQD28WGulavB0g4k',
-    description: 'Possible Trump administration-backed cuts to EPA could hurt Tennessee',
-    canonicalUrl: 'https://www.facebook.com/knoxnews/posts/10155018740662649'
-  }
-]
-},
-{
-  id: 'judge',
+    source: 'My San Antonio from the Express-News',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13590272_10154284280555762_671073089560611250_n.jpg?oh=4a6e961082eb9c5a8b64215c81adef4c&oe=5971AC9A',
+    date: '2017-03-14',
+    headline: 'Rep. Steve King warns that \'our civilization\' can\'t be restored with \'somebody else\'s babies\'',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBfzgs2Peu1vJuA&url=http%3A%2F%2Fww4.hdnux.com%2Fphotos%2F55%2F45%2F26%2F11949459%2F5%2FrawImage.jpg&_nc_hash=AQBaf9Gooinwonoe',
+    description: 'Rep. Steve King, R-Iowa, has gained notoriety for his often contentious - and, occasionally, almost overtly racist - comments about immigration and the demographics of the United States. On Sunday, in a tweet about the nationalist Dutch politician Geert Wilders, King again appears to have crossed th...',
+    canonicalUrl: 'http://trib.al/holzFmY'
+  }]
+}, {
+  id: '\'sanctuary\'',
   articles: [{
+    partisanRank: 'L2',
+    source: 'NBC News',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1621673_805591539460878_8753611874853200748_n.png?oh=dc09a6711f42a37a040d1695737ffdec&oe=5930EDCB',
+    date: '2017-03-14',
+    headline: 'Conservative cities see \'Sanctuary City\' term as scarlet letter',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDv4lh0I331Yaj-&url=http%3A%2F%2Fmedia3.s-nbcnews.com%2Fj%2Fnewscms%2F2017_10%2F1925631%2F170307-donald-trump-executive-order-mn-1610_a0eb7c92dd08fca2df95115c0ad7dc4a.nbcnews-fp-1200-800.jpg&_nc_hash=AQA1Tb_80F4rOsww',
+    description: 'The term \'sanctuary city\' has been thrown around an awful lot recently, but truth be told it has no real legal definition.',
+    canonicalUrl: 'http://nbcnews.to/2mnG2yv'
+  }, {
+    partisanRank: 'C1',
+    source: 'The Washington Times',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/15032166_10154886960104411_2087571460580968986_n.jpg?oh=4dee359703b1d59e7e99e1952d7cb77d&oe=59287086',
+    date: '2017-03-14',
+    headline: 'Number of sanctuary cities nears 500: Report',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDghIfuuA7SRUTM&url=http%3A%2F%2Fmedia.washtimes.com.s3.amazonaws.com%2Fmedia%2Fimage%2F2017%2F03%2F09%2FDeportation_18136.jpg-b69f9.jpg&_nc_hash=AQBRtcj06H2s_qGe',
+    description: 'Nearly 500 jurisdictions are now sanctuary cities, according to a group that’s tracked the issue for more than a decade, and who said there’s been a massive surge in the number of places trying to thwart federal immigration agents since President Trump’s election.',
+    canonicalUrl: 'http://www.washingtontimes.com/news/2017/mar/14/number-sanctuary-cities-nears-500-report/'
+  }, {
+    partisanRank: 'C3',
+    source: 'Breitbart',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/227458_10152346853555354_25751187_n.jpg?oh=c960a50a25f08f37c08eff204db1f1da&oe=596FFE4B',
+    date: '2017-03-14',
+    headline: 'Texas Sanctuary County Faces Loss of Millions in State Funding',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAhU44sqSxORwqO&url=http%3A%2F%2Fmedia.breitbart.com%2Fmedia%2F2017%2F01%2FHernandez-Abbott.png&_nc_hash=AQDefS7CTDXHTsLz',
+    description: ' ',
+    canonicalUrl: 'http://trib.al/uMcMvUM'
+  }]
+}, {
+  id: '\'trumpcare\'',
+  articles: [{
+    partisanRank: 'L3',
+    source: 'The New York Times',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/420194_448960124998_2006714158_n.jpg?oh=eb474d03a773119e1fb0e2ecb7f7be54&oe=596B7F80',
+    date: '2017-03-14',
+    headline: 'Trading Health Care for the Poor for Tax Cuts for the Rich',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCZ9FG5rkDXE3W9&url=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2017%2F03%2F14%2Fopinion%2F14tue1NEW%2F14tue1web-1489442247024-facebookJumbo.jpg&_nc_hash=AQD6bPWKtK6pL19_',
+    description: 'A nonpartisan analysis reveals that President Trump’s promise of “insurance for everybody” is hollow.',
+    canonicalUrl: 'https://www.nytimes.com/2017/03/13/opinion/trading-health-care-for-the-poor-for-tax-cuts-for-the-rich.html?smid=fb-nytimes&smtyp=cur'
+  }, {
+    partisanRank: 'L2',
+    source: 'Daily Kos',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12794441_10154047834719255_5302242364924208190_n.jpg?oh=c0bf85f83df68c3148e2f4462bb88ce0&oe=59287F49',
+    date: '2017-03-14',
+    headline: 'CBO Analysis: 64-year-old will pay more than 1/2 their yearly income for TrumpCare',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCumzu7TUd2bKdC&url=http%3A%2F%2Fimages.dailykos.com%2Fimages%2F377022%2Fstory_image%2FIMG_1933.PNG%3F1489439429&_nc_hash=AQATuxJA6Fgusjnl',
+    description: 'Devastating nugget in CBO analysis! TrumpCare devastates Seniors making $26,500 a year, to the tune of $14,600 of their total income to afford buying a TrumpCare plan. AARP had it right the age-tax will devastate Seniors. Bankruptcy will be the norm...',
+    canonicalUrl: 'http://www.dailykos.com/story/2017/03/13/1643011/-CBO-Analysis-64-year-old-will-pay-more-than-1-2-their-yearly-income-for-TrumpCare?detail=facebook'
+  }, {
     partisanRank: 'L1',
-    source: 'Newsday',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1382227_10151909989989449_806534758_n.jpg?oh=14ea40751d9874d963b26035b654b28d&oe=59260D48',
-    date: '2017-03-12',
-    headline: 'Melee breaks out at Nassau traffic court',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBUUKqbpmQmHjHH&url=http%3A%2F%2Fcdn.newsday.com%2Fpolopoly_fs%2F1.13245987.1489282104%21%2FhttpImage%2Fimage.jpeg_gen%2Fderivatives%2Flandscape_1280%2Fimage.jpeg&_nc_hash=AQBHibSuVvLXQbxy',
-    description: '“When the judge has to put somebody in a chokehold, we got a problem.”',
-    canonicalUrl: 'https://www.facebook.com/newsday/posts/10155049905959449'
-  },
-  {
+    source: 'The Raw Story',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c52.53.257.257/s50x50/10360839_10152703508732235_6694429870530559967_n.jpg?oh=a8652ddcb98e984fe4dbcd1d7c80a755&oe=592C7523',
+    date: '2017-03-14',
+    headline: '‘It’s a disaster’: Chase Bank chief economist tears Trumpcare to pieces on CNN',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCHTIICJbdpSGWA&url=http%3A%2F%2Fwww.rawstory.com%2Fwp-content%2Fuploads%2F2017%2F03%2FChase-Chief-Economist-Anthony-Chan-800x430.jpg&_nc_hash=AQAt6XsMf1GnmQlc',
+    description: 'Chase Bank chief economist Anthony Chan likes some aspects of the Republicans’ proposed Obamacare replacement legislation — but not enough of them to prevent the bill from being what he calls “a disaster.”',
+    canonicalUrl: 'http://www.rawstory.com/2017/03/its-a-disaster-chase-bank-chief-economist-tears-trumpcare-to-pieces-on-cnn/'
+  }, {
     partisanRank: 'N',
     source: 'CNBC',
     sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10891972_10153082667464369_8047543635589507632_n.png?oh=76bb84c441da6984918b861873879abc&oe=592CA04F',
-    date: '2017-03-12',
-    headline: 'Trump\'s revised travel ban dealt first court setback',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCsIu9ODvpSLmsn&url=http%3A%2F%2Ffm.cnbc.com%2Fapplications%2Fcnbc.com%2Fresources%2Fimg%2Feditorial%2F2017%2F03%2F10%2F104334423-GettyImages-635100034.1910x1000.jpg&_nc_hash=AQDDvA4JCh1z89Le',
-    description: 'Judge bars enforcement of the policy to deny U.S. entry to the wife and child of a Syrian refugee granted asylum in the United States.',
-    canonicalUrl: 'https://www.facebook.com/cnbc/posts/10155299740939369'
-  },
-  {
+    date: '2017-03-14',
+    headline: 'CBO report on Trumpcare confirms it—You can\'t fix stupid (op-ed)',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQDbL8PFW_7_FUH2&url=http%3A%2F%2Ffm.cnbc.com%2Fapplications%2Fcnbc.com%2Fresources%2Fimg%2Feditorial%2F2017%2F03%2F14%2F104341030-104340557.1910x1000.jpg&_nc_hash=AQA-MLayYWJ6jkaH',
+    description: 'Under the GOP health plan, 24 million people will "lose" coverage. But here\'s the real takeaway from the CBO report, says Jake Novak.\r\n',
+    canonicalUrl: 'http://cnb.cx/2nAYuEA'
+  }, {
     partisanRank: 'C1',
-    source: 'Daily Express',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/11665416_1118578774869047_898942630122989843_n.jpg?oh=96c46459d1f7458e6bf64413f0896f2f&oe=592E0993',
-    date: '2017-03-12',
-    headline: 'Illegal immigrant handed £40,000 as judge says prolific criminal was ‘locked up too long’',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC0BTuvrG1_KWtF&url=http%3A%2F%2Fcdn.images.express.co.uk%2Fimg%2Fdynamic%2F1%2F750x445%2F778085.jpg&_nc_hash=AQCqyHyA3zOI0BYM',
-    description: 'THOUSANDS of pounds of taxpayers money has been handed to a prolific criminal who has lived illegally in Britain for 17 years after a judge ruled the Iranian was locked up for “too long”.',
-    canonicalUrl: 'https://www.facebook.com/DailyExpress/posts/1542932695766984'
-  }
-]
-},
-{
-  id: 'healthcare',
-  articles: [{
-    partisanRank: 'L3',
-    source: 'The Baltimore Sun',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10603227_10152755868784712_2664903037313031020_n.jpg?oh=f7df7067dc3fbcef2b0d755bf03866be&oe=59704BCD',
-    date: '2017-03-12',
-    headline: 'Millions might lose health coverage? Not to hear Republican leaders tell it',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAlHgqlEugAoWsI&url=http%3A%2F%2Fwww.trbimg.com%2Fimg-58c58a97%2Fturbine%2Fct-gop-healthcare-20170312&_nc_hash=AQApl06qojXpuo_y',
-    description: 'Depending on whom you ask in GOP leadership, people will gain coverage if the Republican alternative to the Affordable Care Act passes Congress.',
-    canonicalUrl: 'https://www.facebook.com/baltimoresun/posts/10155122897919712'
-  },
-  {
-    partisanRank: 'L1',
-    source: 'CBS News',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c2.0.50.50/p50x50/11052868_10153128917450950_7657871426571821819_n.jpg?oh=16615c76b5c5b3c311b4cbea386b271e&oe=5971C560',
-    date: '2017-03-12',
-    headline: 'Bernie Sanders calls new health care bill "a tax break for the top 2 percent"',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCLLmkt7yOqtxul&url=http%3A%2F%2Fcbsnews1.cbsistatic.com%2Fhub%2Fi%2F2017%2F03%2F12%2F5edd9696-64ea-49de-863a-22116b1add1a%2Fsanders.jpg&_nc_hash=AQDW-rGGpNsPwzUG',
-    description: ' ',
-    canonicalUrl: 'https://www.facebook.com/CBSNews/posts/10154440151100950'
-  },
-  {
-    partisanRank: 'N',
-    source: 'Detroit Free Press',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10670012_10152773537200530_758277983470617508_n.jpg?oh=da5719f93bf5ec0fc84b9ade3708ad9e&oe=596E9768',
-    date: '2017-03-12',
-    headline: 'Republicans\' health care proposal is doomed',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCnU1TKY1vvV2Iq&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F36617138d868a693cfa548979a08ac66a9a22808%2Fc%3D0-72-787-517%26r%3Dx633%26c%3D1200x630%2Flocal%2F-%2Fmedia%2F2017%2F03%2F10%2FDetroitFreePress%2FDetroitFreePress%2F636247772319900891-ABM-Healthcare-Web.jpg&_nc_hash=AQDqCspODn5lvMiD',
-    description: 'GOP tries to have its cake and feed it to everyone else at the same time.',
-    canonicalUrl: 'https://www.facebook.com/detroitfreepress/posts/10155173797355530'
-  },
-  {
-    partisanRank: 'C1',
-    source: 'Washington Examiner',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12507324_10153546664844160_8681130256481102644_n.png?oh=f5bf5e70215cd8a8136e53f9c3b661f5&oe=592D33F1',
-    date: '2017-03-12',
-    headline: 'Cotton warns: Supporting healthcare bill will cost the GOP its House majority in 2018',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAy8xMn7inO4bHa&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F3552-8ffb4e0f6c7cdc0926593c9752a8af79.jpg&_nc_hash=AQCfKrrE0k_4Rms-',
-    description: 'Sen. Tom Cotton, R-Ark., Sunday warned House Republicans could pay the ultimate price in the 2018 elections if they vote in support of the Obamacare replacement bill. I would say to my friends in the House of Representatives, with whom I served, do not walk the plank and vote for a bill that cannot ...',
-    canonicalUrl: 'https://www.facebook.com/WashingtonExaminer/posts/10154701496214160'
-  }
-]
-},
-{
-  id: 'congress',
-  articles: [{
-    partisanRank: 'L5',
-    source: 'The Times of India',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14457373_10154629036722139_4431901373813970507_n.jpg?oh=421f3d5e364765cff5dab6ba916586c2&oe=592BD105',
-    date: '2017-03-12',
-    headline: 'In Goa, BJP to stake claim to form govt, state unit wants Parrikar as CM',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC5Ouf1iU4D0jfI&url=http%3A%2F%2Ftimesofindia.indiatimes.com%2Fphoto%2F57604110.cms%3F120762&_nc_hash=AQA3pAUWB5trXykz',
-    description: 'BJP and the Congress are locked in a post-poll battle to secure the support of smaller parties for government formation.',
-    canonicalUrl: 'https://www.facebook.com/TimesofIndia/posts/10155176385982139'
-  },
-  {
-    partisanRank: 'L4',
-    source: 'The Economist',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1380143_10151921706179060_1648026702_n.png?oh=c0733eb2e4960366036e40201c9ccaf0&oe=595F25B4',
-    date: '2017-03-12',
-    headline: 'Donald Trump’s habit of making accusations without evidence is corrosive',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCFH07tiGd-9tpA&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F783-190a5e1a346adc191e1e93896df49151.png&_nc_hash=AQCSlKjQyTaC0xco',
-    description: 'Everything-gate',
-    canonicalUrl: 'https://www.facebook.com/TheEconomist/posts/10155185242119060'
-  },
-  {
-    partisanRank: 'L3',
-    source: 'The Baltimore Sun',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10603227_10152755868784712_2664903037313031020_n.jpg?oh=f7df7067dc3fbcef2b0d755bf03866be&oe=59704BCD',
-    date: '2017-03-12',
-    headline: 'Millions might lose health coverage? Not to hear Republican leaders tell it',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAlHgqlEugAoWsI&url=http%3A%2F%2Fwww.trbimg.com%2Fimg-58c58a97%2Fturbine%2Fct-gop-healthcare-20170312&_nc_hash=AQApl06qojXpuo_y',
-    description: 'Depending on whom you ask in GOP leadership, people will gain coverage if the Republican alternative to the Affordable Care Act passes Congress.',
-    canonicalUrl: 'https://www.facebook.com/baltimoresun/posts/10155122897919712'
-  },
-  {
-    partisanRank: 'L1',
-    source: 'CBS News',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c2.0.50.50/p50x50/11052868_10153128917450950_7657871426571821819_n.jpg?oh=16615c76b5c5b3c311b4cbea386b271e&oe=5971C560',
-    date: '2017-03-12',
-    headline: 'Marines nude photo scandal expands to all branches of military',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?url=http%3A%2F%2Fcbsnews1.cbsistatic.com%2Fhub%2Fi%2F2017%2F03%2F09%2F926ae6e8-1a58-4cc9-aeda-375423becf34%2Fevening-news-1830-clean-20170309-cr470c-01-frame-4856.png&_nc_hash=AQD7oQpurbXn31Hj',
-    description: ' ',
-    canonicalUrl: 'https://www.facebook.com/CBSNews/posts/10154438499675950'
-  },
-  {
-    partisanRank: 'N',
-    source: 'Yahoo News',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c28.28.347.347/s50x50/1234558_10151822723996037_1232781499_n.jpg?oh=7ae8319c73b353ec2b8a41b143ac8e56&oe=5927FF9E',
-    date: '2017-03-12',
-    headline: 'GOP congressman says the poor ‘just don’t want health care’',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC3sIrkAYtvWQHJ&url=https%3A%2F%2Fs.yimg.com%2Fuu%2Fapi%2Fres%2F1.2%2FX3E8IBo4yTWA.S6vtUz95A--%2FaD0zMTg3O3c9NDc4ODtzbT0xO2FwcGlkPXl0YWNoeW9u%2Fhttp%3A%2F%2Fmedia.zenfs.com%2Fen-US%2Fhomerun%2Ftime_72%2Fbe1624a25ea960da8285dd9a68267062&_nc_hash=AQBKkq-WowuuMRuO',
-    description: 'Roger Marshall spent three decades as a doctor before coming to Congress',
-    canonicalUrl: 'https://www.facebook.com/yahoonews/posts/10155391900326037'
-  },
-  {
-    partisanRank: 'C1',
-    source: 'Washington Examiner',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12507324_10153546664844160_8681130256481102644_n.png?oh=f5bf5e70215cd8a8136e53f9c3b661f5&oe=592D33F1',
-    date: '2017-03-12',
-    headline: 'McCain expects more bombshells to come in Trump-Russia investigation',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCnII01ftk6freu&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F3552-37fe0356859d929f53597fbc2f9c0d54.jpg&_nc_hash=AQCLSb4Pv0rGmsmR',
-    description: 'Sen. John McCain, R-Ariz., expects Congress\' investigation into President Trump and Russia to reveal additional, unprecedented details about both parties. There\'s a lot of things about our relations with Russia that trouble me a lot, McCain told CNN State of the Union host Jake Tapper on Sunday morn...',
-    canonicalUrl: 'https://www.facebook.com/WashingtonExaminer/posts/10154701769229160'
-  },
-  {
-    partisanRank: 'C5',
-    source: 'Knoxville News Sentinel',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14724529_10154516507302649_2882560088089650079_n.png?oh=a0b3c498354f7ae3c12d09dad592c1ee&oe=592710A7',
-    date: '2017-03-12',
-    headline: 'EPA cuts could be costly to Tennessee',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC7irkZMCzoSoTz&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F2736d7a6d12f28b3e75e8e6ed84c1e27359398ac%2Fc%3D0-0-5561-3142%26r%3Dx1683%26c%3D3200x1680%2Flocal%2F-%2Fmedia%2F2017%2F02%2F08%2FTennGroup%2FKnoxville%2F636221592840053835-McClung-03.jpg&_nc_hash=AQD28WGulavB0g4k',
-    description: 'Possible Trump administration-backed cuts to EPA could hurt Tennessee',
-    canonicalUrl: 'https://www.facebook.com/knoxnews/posts/10155018740662649'
-  }
-]
-},
-{
-  id: 'war',
-  articles: [{
-    partisanRank: 'L5',
-    source: 'The Times of India',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14457373_10154629036722139_4431901373813970507_n.jpg?oh=421f3d5e364765cff5dab6ba916586c2&oe=592BD105',
-    date: '2017-03-12',
-    headline: 'Meet the Jaipur man who ran BJP\'s war room in UP',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBQyWBZO-SpD7PH&url=http%3A%2F%2Ftimesofindia.indiatimes.com%2Fphoto%2F57602359.cms%3F288647&_nc_hash=AQDQE0kFnQpzoMwr',
-    canonicalUrl: 'https://www.facebook.com/TimesofIndia/posts/10155176029312139'
-  },
-  {
-    partisanRank: 'L4',
-    source: 'The Economist',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1380143_10151921706179060_1648026702_n.png?oh=c0733eb2e4960366036e40201c9ccaf0&oe=595F25B4',
-    date: '2017-03-12',
-    headline: 'INTERACTIVE: Why the nuclear threat level is rising',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBW71M_gc3yC5QH&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F783-1bc7fe7b0076069dfb9c47dacb45cafa.png&_nc_hash=AQBvAb9FaqtwflRN',
-    description: 'From the archive',
-    canonicalUrl: 'https://www.facebook.com/TheEconomist/posts/10155183061894060'
-  },
-  {
-    partisanRank: 'L3',
-    source: 'San Francisco Chronicle',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c1.0.50.50/p50x50/12744176_10153903009384524_2043072041592185478_n.jpg?oh=923238ae164d0d9433149460b05d3c36&oe=592C0E21',
-    date: '2017-03-12',
-    headline: 'California to fight if EPA eases emissions rule',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBEn0iN7huv0EBs&url=http%3A%2F%2Fww3.hdnux.com%2Fphotos%2F57%2F62%2F20%2F12526654%2F5%2FrawImage.jpg&_nc_hash=AQBUwFisg00-4ZVk',
-    description: 'The Trump administration is expected to start rolling back tough limits on carbon pollution from cars and trucks this week, and may be considering a plan to revoke California’s authority to set its own pollution standards for vehicles.',
-    canonicalUrl: 'https://www.facebook.com/sanfranciscochronicle/posts/10155131503964524'
-  },
-  {
-    partisanRank: 'L2',
-    source: 'The Independent',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/11051795_10152732082756636_6705742038347351188_n.png?oh=601cf9bc5dda3232bc25396590ec2133&oe=5927D6A8',
-    date: '2017-03-12',
-    headline: 'World War 3 is coming',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBpYGmibpI4gGbA&url=https%3A%2F%2Fstatic.independent.co.uk%2Fs3fs-public%2Fthumbnails%2Fimage%2F2017%2F03%2F10%2F13%2Fworld-war-3.jpg&_nc_hash=AQC5K6X_Zhtl-VGI',
-    description: 'Very worrying',
-    canonicalUrl: 'https://www.facebook.com/TheIndependentOnline/posts/10154580379911636'
-  },
-  {
-    partisanRank: 'L1',
-    source: 'The Wall Street Journal',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10425183_10153042997503128_8853743190705642331_n.jpg?oh=e47987652c394cef7deeb4d0a3ebafd3&oe=595D49E0',
-    date: '2017-03-13',
-    headline: 'Turkey-Netherlands Row Escalates as Dutch Deport Minister',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCOl0gZWiRVIym_&url=https%3A%2F%2Fsi.wsj.net%2Fpublic%2Fresources%2Fimages%2FBN-SL190_2ZkhV_G_20170311082048.jpg&_nc_hash=AQCeSaK7HnIvSEs2',
-    description: 'The feud between Turkey and the Netherlands, which had been brewing for days, boiled over Saturday night, when Dutch authorities deported a Turkish minister from Rotterdam as she attempted to hold an unauthorized political rally.',
-    canonicalUrl: 'https://www.facebook.com/wsj/posts/10155611775693128'
-  },
-  {
-    partisanRank: 'C1',
-    source: 'Newsmax',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c2.0.50.50/p50x50/250562_10150201307517377_7328715_n.jpg?oh=4372133dd0ebe1b075b7558a25f17024&oe=59335A35',
-    date: '2017-03-12',
-    headline: 'Michael Savage Slams CNN for \'Communist\' Attacks on Trump',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCgkpxjX6ivpw4G&url=http%3A%2F%2Fcdn.newsmax.com%2Fgetattachment%2Fcdff455b-53f2-4347-872c-5722fc261a44%2Fsavage-600-500-ap.jpg.aspx%3Fwidth%3D300%26height%3D248&_nc_hash=AQB8r1F6Y_D9n7Wh',
-    description: 'Top radio host Michael Savage on Friday defended President Donald Trump\'s war on the media, comparing many in American press to the "far left" and even the old Soviet Communist press.',
-    canonicalUrl: 'https://www.facebook.com/newsmax/posts/10154248049947377'
-  },
-  {
-    partisanRank: 'C2',
-    source: 'Breitbart',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/227458_10152346853555354_25751187_n.jpg?oh=c960a50a25f08f37c08eff204db1f1da&oe=596FFE4B',
-    date: '2017-03-12',
-    headline: 'Second Explosion Rocks Sweden in 24 Hours, Suspected Bomb',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBuwa8CE0PB0Zzp&url=http%3A%2F%2Fmedia.breitbart.com%2Fmedia%2F2017%2F03%2FGettyImages-518374670.jpg&_nc_hash=AQBW4MlDZqzqd6xb',
-    description: ' ',
-    canonicalUrl: 'https://www.facebook.com/Breitbart/posts/10158755014015354'
-  }
-]
-},
-{
-  id: 'college',
-  articles: [{
-    partisanRank: 'L4',
-    source: 'The Economist',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1380143_10151921706179060_1648026702_n.png?oh=c0733eb2e4960366036e40201c9ccaf0&oe=595F25B4',
-    date: '2017-03-12',
-    headline: 'Free speech has been claimed by conservatives',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBJfvHq30zc_wo-&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F783-5c3e614adfbc9e4b3ddb2989cd212080.jpg&_nc_hash=AQBLepQdo2ODkDSm',
-    description: 'Middlebury College and the generational clash within liberalism',
-    canonicalUrl: 'https://www.facebook.com/TheEconomist/posts/10155184592054060'
-  },
-  {
-    partisanRank: 'L2',
-    source: 'The New York Times',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/420194_448960124998_2006714158_n.jpg?oh=eb474d03a773119e1fb0e2ecb7f7be54&oe=596B7F80',
-    date: '2017-03-12',
-    headline: 'The Dangerous Safety of College',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQBtlAYo8Yp0rN2c&url=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2017%2F03%2F12%2Fopinion%2Fsunday%2F12bruni%2F12bruni-facebookJumbo.jpg&_nc_hash=AQDotOFxQ_4oAXIJ',
-    description: 'The ugly protest at Middlebury is a wake-up call. We’re failing today’s students.',
-    canonicalUrl: 'https://www.facebook.com/nytimes/posts/10151109394484999'
-  },
-  {
-    partisanRank: 'L1',
-    source: 'The Atlantic',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/311180_10151302641288487_1823603358_n.jpg?oh=8d2714f581601bc7e189837a01f96748&oe=5968BEFA',
-    date: '2017-03-12',
-    headline: 'You probably should have majored in computer science',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQD7_QEN3KCDGzcs&url=https%3A%2F%2Fqzprod.files.wordpress.com%2F2017%2F03%2Fstudents-contemplate-careers.jpg%3Fquality%3D80%26strip%3Dall%26w%3D1600&_nc_hash=AQAbiOwD3n_B0gzt',
-    description: 'The ratio of recent college graduates to open jobs is insane.',
-    canonicalUrl: 'https://www.facebook.com/TheAtlantic/posts/10155202371963487'
-  },
-  {
-    partisanRank: 'N',
-    source: 'Detroit Free Press',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10670012_10152773537200530_758277983470617508_n.jpg?oh=da5719f93bf5ec0fc84b9ade3708ad9e&oe=596E9768',
-    date: '2017-03-12',
-    headline: 'Michigan a No. 7 seed, will play Oklahoma State in NCAA tournament',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC6dJqlWUHmOs3T&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2Fcd2cb17292a572a6816dacbbf11a12f93477f101%2Fc%3D0-256-2988-1944%26r%3Dx633%26c%3D1200x630%2Flocal%2F-%2Fmedia%2F2017%2F03%2F12%2FDetroitFreePress%2FDetroitFreePress%2F636249372538928942-AP-B10-Michigan-Wisconsin-Ba-3-.jpg&_nc_hash=AQDDIoJd-7u-AC_5',
-    description: 'U-M enters the NCAA tournament as a No. 7 seed and will play Oklahoma State in the first round on Friday',
-    canonicalUrl: 'https://www.facebook.com/detroitfreepress/posts/10155176076430530'
-  },
-  {
-    partisanRank: 'C1',
-    source: 'Milwaukee Journal Sentinel',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/1463121_10152067171543816_1808788188_n.jpg?oh=04021e6bd6196f37c54aa69139d5adbc&oe=59685696',
-    date: '2017-03-12',
-    headline: 'Marquette seeded No. 10 in NCAA Tournament',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQCvZ0p4EmK0-geT&url=http%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F61910a428f9ce649187ff9631a0c78aea8fee2ad%2Fc%3D0-98-4866-2847%26r%3Dx1683%26c%3D3200x1680%2Flocal%2F-%2Fmedia%2F2017%2F03%2F12%2FWIGroup%2FMilwaukee%2F636249373683976282-AP-Xavier-Marquette-Basketball.1.jpg&_nc_hash=AQCHQjOxsguaegx_',
-    description: 'The wait is over for the Marquette men\'s basketball team. The Golden Eagles are going dancing again.',
-    canonicalUrl: 'https://www.facebook.com/journalsentinel/posts/10155302461033816'
-  },
-  {
-    partisanRank: 'C3',
-    source: 'St. Louis Post-Dispatch',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/14022090_10154511115504885_1831531032348027270_n.png?oh=27a72d756ac465bbc2cb16c5c60c8a14&oe=5966DD55',
-    date: '2017-03-12',
-    headline: 'Columbus: Hip neighborhoods, fun attractions make it worth a visit',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?url=http%3A%2F%2Fbloximages.newyork1.vip.townnews.com%2Fstltoday.com%2Fcontent%2Ftncms%2Fassets%2Fv3%2Feditorial%2Fd%2F7e%2Fd7e0a710-4f84-59e1-a910-efd70cc67123%2F58c022628ee38.image.jpg%3Fresize%3D1200%252C771&_nc_hash=AQCRV-wgfa1k20cy',
-    description: 'What we found was a fun college town, a booming arts town and a bunch of colorful neighborhoods sprinkled throughout the city.',
-    canonicalUrl: 'https://www.facebook.com/STLPD/posts/10155191522639885'
-  },
-  {
-    partisanRank: 'C5',
-    source: 'The Kansas City Star',
-    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/c17.17.216.216/s50x50/263663_10150201074764094_4071675_n.jpg?oh=063929e2244b10e17f839ed3547581a5&oe=595D3F1C',
-    date: '2017-03-12',
-    headline: 'KU gets No. 1 seed in NCAA Tourney, Jayhawks’ Final Four path goes through Tulsa, KC',
-    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQAEiUBNpWTBC4R3&url=http%3A%2F%2Fwww.kansascity.com%2Fsports%2Fcollege%2Fbig-12%2Funiversity-of-kansas%2Fwwqbdn%2Fpicture138086698%2FALTERNATES%2FLANDSCAPE_1140%2Fjayhawks&_nc_hash=AQAopPuG5Ep8LDck',
-    description: 'What do you think of the Jayhawks\' draw in the tournament? Can they go all the way to the championship?',
-    canonicalUrl: 'https://www.facebook.com/kansascitystar/posts/10154597032809094'
-  }
-]
-}
-];
+    source: 'The Hill',
+    sourceThumbnail: 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/12985451_10153703672994087_5860860619868875285_n.jpg?oh=466f9495f0a23d82bad4db1a27d3afd3&oe=596925E9',
+    date: '2017-03-14',
+    headline: 'Schumer: GOP healthcare bill is in serious trouble',
+    image: 'https://external.xx.fbcdn.net/safe_image.php?d=AQC45dfk-vFYDZs-&url=https%3A%2F%2Fs3.amazonaws.com%2Fprod-cust-photo-posts-jfaikqealaka%2F3352-fe0d1b68750da5980309e8b0e1376fdf.jpg&_nc_hash=AQB_12uY2g8LYctQ',
+    description: '"It’s in trouble in the House; it’s in even more trouble in the Senate; and we Democrats are unified."',
+    canonicalUrl: 'http://hill.cm/T2f430N'
+  }]
+}];
 
 export default sampleData;
