@@ -1,6 +1,6 @@
 import {AsyncStorage} from 'react-native';
 
-const AUTHENTICATION_STORAGE_KEY = 'PepperoniState:Authentication';
+const AUTHENTICATION_STORAGE_KEY = 'Bubbl:Authentication';
 
 export function getAuthenticationToken() {
   return AsyncStorage.getItem(AUTHENTICATION_STORAGE_KEY);
