@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Dimensions } from 'react-native';
-import { Image, View, ListView, Divider } from '@shoutem/ui';
+import { AsyncStorage, LayoutAnimation } from 'react-native';
+import { Image, View, ListView, Divider, Heading } from '@shoutem/ui';
 import { Actions } from 'react-native-router-flux';
 import Spinner from 'react-native-spinkit';
 
 import TopicBundleCard from './TopicBundleCard';
 import { randomShuffle } from '../services/random';
+
+const TOPIC_BUNDLES_URL = 'https://bubbl-server.herokuapp.com/news/bundles'
+const CACHED_TOPIC_BUNDLES_KEY = 'CACHED_TOPIC_BUNDLES_KEY';
 
 export default class HomeScreen extends Component {
 
@@ -15,9 +18,13 @@ export default class HomeScreen extends Component {
     this.state = {
       isLoading: true,
       topicBundles: [],
-      fakeRows: this.buildFakeRows(),
     };
+    this.retrieveCachedTopicBundles();
     this.fetchTopicBundles();
+  }
+
+  componentWillUpdate() {
+    LayoutAnimation.easeInEaseOut();
   }
 
   onOpenArticle = (topicBundle, articleIndex) => {
@@ -29,42 +36,42 @@ export default class HomeScreen extends Component {
     Actions.topic({ topicBundle, initialArticleIndex: articleIndex });
   }
 
-  buildFakeRows = () => (
-    [
-      require('../../images/ad.png'),
-      require('../../images/event.png'),
-      require('../../images/photoAlbum.png'),
-      require('../../images/instagramPhoto.png'),
-    ].map(image => ({ isFakeRow: true, source: image }))
-  )
+  retrieveCachedTopicBundles = () => {
+    AsyncStorage.getItem(CACHED_TOPIC_BUNDLES_KEY)
+      .then((topicBundlesString) => {
+        if (topicBundlesString !== null) {
+          const topicBundles = JSON.parse(topicBundlesString);
+          console.log('Successfully retrieved cache: ', topicBundles);
+          this.setState({ topicBundles });
+        }
+      });
+  }
 
   fetchTopicBundles = () => {
-    const searchUrl = 'https://bubbl-server.herokuapp.com/news/bundles';
-    return fetch(searchUrl, { timeout: 200 })
+    return fetch(TOPIC_BUNDLES_URL)
       .then(response => response.json())
       .then((topicBundles) => {
-        console.log('Successfully fetched: ', topicBundles)
+        console.log('Successfully fetched: ', topicBundles);
+        const topicBundlesString = JSON.stringify(topicBundles);
+        AsyncStorage.setItem(CACHED_TOPIC_BUNDLES_KEY, topicBundlesString);
         this.setState({
           topicBundles,
           isLoading: false,
         });
       })
-      .catch(() => {
-        console.warning('Not connected to the internet.')
+      .catch((error) => {
+        console.warn(error)
         this.setState({ isLoading: false });
       });
   }
 
-  renderFeedHeader = () => {
-    const { width } = Dimensions.get('window');
-    return (
-      <View style={{ alignItems: 'center'}}>
-        <Image source={require('../../images/topAction.png')} style={{ width, borderColor: '#d3d3d3', borderWidth: 0.5 }} />
-        <Image source={require('../../images/prompt.png')} style={{ width }} />
-        <Divider style={{ backgroundColor: 'transparent' }} />
-      </View>
-    );
-  }
+  renderFeedHeader = () => (
+    <View>
+      <Divider style={{ backgroundColor: 'transparent' }} />
+      <Heading styleName={'md-gutter-left bold'} style={{ color: 'gray' }}>FEATURED STORIES</Heading>
+      <Divider style={{ backgroundColor: 'transparent' }} />
+    </View>
+  )
 
   renderFeedRow = (data) => {
     let feedRow = null;
@@ -87,33 +94,32 @@ export default class HomeScreen extends Component {
     );
   }
 
-  render() {
-    if (this.state.isLoading) {
-      return (
-        <Spinner
-          style={{ alignSelf: 'center', marginTop: 50 }}
-          isVisible
-          size={100}
-          type={'Bounce'}
-          color={'#3B5998'}
-        />
-      );
-    }
+  renderLoader = () => {
+    return (!this.state.isLoading) ? null : (
+      <Spinner
+        style={{ alignSelf: 'center', marginVertical: 25, backgroundColor: 'transparent' }}
+        isVisible
+        size={100}
+        type={'Bounce'}
+        color={'#3B5998'}
+      />
+    );
+  }
 
+  render() {
     if (this.state.topicBundles.length === 0) {
       return null;
     }
 
-    const combinedFeed = this.state.topicBundles.concat(this.state.fakeRows);
-    const randomizedFeed = randomShuffle(combinedFeed);
+    const randomizedFeed = randomShuffle(this.state.topicBundles);
 
     return (
       <View style={{ flex: 1, backgroundColor: '#ededed' }}>
+        {this.renderLoader()}
         <ListView
           data={randomizedFeed}
           loading={this.state.isLoading}
           renderRow={this.renderFeedRow}
-          renderHeader={this.renderFeedHeader}
         />
       </View>
     );
