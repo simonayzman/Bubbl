@@ -18,9 +18,9 @@ export default function AppViewContainer() {
       <Router navigationBarStyle={{ backgroundColor: '#3B5998' }} titleStyle={{ color: 'white' }}>
         <Scene key="modal" component={Modal}>
           <Scene key="root">
-            <Scene key="home" initial component={HomeScreen} title={'🤔'} sceneStyle={{ marginTop: navHeight }} />
+            <Scene key="home" initial component={HomeScreen} title={'FEATURED STORIES'} sceneStyle={{ marginTop: navHeight }} />
             <Scene key="topic" component={TopicBundleCarousel} direction={'vertical'} hideNavBar />
-            <Scene key="article" component={ArticlePage} direction={'vertical'} sceneStyle={{ marginTop: 20 }} />
+            <Scene key="article" component={ArticlePage} direction={'vertical'} sceneStyle={{ marginTop: 20 }} hideNavBar />
           </Scene>
         </Scene>
       </Router>
