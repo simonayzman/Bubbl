@@ -7,13 +7,8 @@ export default class ArticlePage extends Component {
     url: PropTypes.string.isRequired,
   };
 
-  render() {
-    return (
-      <WebView
-        source={{ uri: this.props.url }}
-        style={{ flex: 1, marginTop: 20 }}
-      />
-    );
-  }
+  render = () => (
+    <WebView source={{ uri: this.props.url }} style={{ flex: 1 }} />
+  )
 
 }
