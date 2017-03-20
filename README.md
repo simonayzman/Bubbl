@@ -23,9 +23,10 @@ react-native run-ios
 
 Upon seeing an article in your feed, you can take the following actions:
 
-* **Tap the story** -> This takes you to the web page for the article.
-* **Long press the news outlet** -> This "flips" the story, showing an article from a news outlet on the opposite end of the political spectrum.
-* **Long press the story** -> This opens a carousel of articles by many news outlets, across the political spectrum, reporting on a similar topic. It also visually pinpoints where the media companies falls on the political spectrum.
+* **Tapping a story** -> This opens a carousel of articles by many news outlets, across the political spectrum, reporting on a similar topic. It also visually pinpoints where the media companies falls on the political spectrum.
+* **Tapping a news outlet** -> This "flips" the story, showing an article from a news outlet on the opposite end of the political spectrum.
+* **Long-pressing a story** -> This takes you to the web page for the article.
+* **Tapping a story in carousel view** -> This takes you to the web page for the article.
 
 ## Credits
 
