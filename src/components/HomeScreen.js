@@ -74,8 +74,8 @@ export default class HomeScreen extends Component {
       feedRow = (
         <TopicBundleCard
           topicBundle={data}
-          onPressContent={this.onOpenArticle}
-          onLongPressContent={this.onOpenCarousel}
+          onPressContent={this.onOpenCarousel}
+          onLongPressContent={this.onOpenArticle}
         />
       );
     }

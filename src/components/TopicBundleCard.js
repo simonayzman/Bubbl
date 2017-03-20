@@ -34,12 +34,12 @@ export default class TopicBundleCard extends Component {
   onPressHeader = (article) => {
     const articleIndex = this.findArticleIndex(this.props.topicBundle, article);
     this.props.onPressHeader(this.props.topicBundle, articleIndex);
+    this.setState({ showingInitialArticle: !this.state.showingInitialArticle });
   }
 
   onLongPressHeader = (article) => {
     const articleIndex = this.findArticleIndex(this.props.topicBundle, article);
     this.props.onLongPressHeader(this.props.topicBundle, articleIndex);
-    this.setState({ showingInitialArticle: !this.state.showingInitialArticle });
   }
 
   onPressContent = (article) => {
